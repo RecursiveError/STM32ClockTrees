@@ -1,0 +1,6 @@
+test.zig
+log.txt
+output.txt
+zig-out/*
+.zig-cache/*
+RCC/*
