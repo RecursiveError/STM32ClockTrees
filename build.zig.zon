@@ -37,7 +37,7 @@
     // internet connectivity.
     .dependencies = .{
         .zig_xml = .{
-            .url = "../zig-xml/",
+            .url = "git+https://github.com/RecursiveError/zig-xml#5d4fd4548d0be92fb17127d1e02abcefb0bf03a4",
             .hash = "zig_xml-0.0.0-62X2G4DRAAD9cgtg-MtJjHbGphSPs8sVqKLoIEAWh-Wx",
         },
     },

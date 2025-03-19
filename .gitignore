@@ -4,4 +4,3 @@ output.txt
 zig-out/*
 .zig-cache/*
 RCC/*
-out-zig/*
