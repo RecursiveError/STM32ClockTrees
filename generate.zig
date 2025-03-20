@@ -76,6 +76,7 @@ fn create_configs(tree: *const Tree, writer: std.io.AnyWriter) !void {
 
 const ListMap = std.StaticStringMap([]const u8).initComptime(.{
     .{ "multiplicator", "MUL" },
+    .{ "multiplicatorFrac", "MUL" },
     .{ "devisor", "DIV" },
     .{ "divisor", "DIV" },
 });
