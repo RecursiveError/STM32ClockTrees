@@ -13,9 +13,9 @@ var GlobalMcu: XmlParser.Document = undefined;
 var GlobalRef: XmlParser.Document = undefined;
 var GlobalDoc: XmlParser.Document = undefined;
 
-const clock_dir_path = "<.....>/STM32CubeMX/db/plugins/clock/";
-const rcc_ref_path = "/<.....>/STM32CubeMX/db/mcu/IP/";
-const mcu_dir_path = "/<.....>/STM32CubeMX/db/mcu/";
+const clock_dir_path = "/home/guilherme/STM32CubeMX/db/plugins/clock/";
+const rcc_ref_path = "/home/guilherme/STM32CubeMX/db/mcu/IP/";
+const mcu_dir_path = "/home/guilherme/STM32CubeMX/db/mcu/";
 pub fn main() !void {
     std.log.info("This does not support advanced checks that some MCUs require\nmanual adjustments need to be made", .{});
     var mcu_dir = try std.fs.openDirAbsolute(mcu_dir_path, .{ .iterate = true });
@@ -295,6 +295,7 @@ const RefMap = std.StaticStringMap(GetRef).initComptime(.{
     .{ "activeOutput", get_ref_number },
     .{ "fixedSource", get_ref_number },
     .{ "variedSource", get_ref_number },
+    .{ "distinctValsSource", get_ref_number },
     .{ "fractional", get_ref_number },
     .{ "multiplicatorFrac", get_ref_number },
     .{ "multiplexor", get_multiplexer },
