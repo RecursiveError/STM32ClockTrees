@@ -85,11 +85,9 @@ pub const HSEPLLsourceDevisorConf = enum {
 };
 pub const USBMultConf = enum {
     PLLMUL,
-    HSIRC48,
 };
 pub const SysClkSourceConf = enum {
     HSIRC,
-    HSIRC48,
     HSEOSC,
     PLLMUL,
 };
@@ -101,7 +99,6 @@ pub const RTCClkSourceConf = enum {
 pub const MCOMultConf = enum {
     MCOMultDivisor,
     HSIRC,
-    HSIRC48,
     HSIRC14,
     HSEOSC,
     LSIRC,
@@ -325,7 +322,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: USBMultType) comptime_int {
                 return switch (self.value) {
                     .PLLMUL => PLLMUL.get(),
-                    .HSIRC48 => HSIRC48.get(),
                 };
             }
         };
@@ -345,7 +341,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: SysClkSourceType) comptime_int {
                 return switch (self.value) {
                     .HSIRC => HSIRC.get(),
-                    .HSIRC48 => HSIRC48.get(),
                     .HSEOSC => HSEOSC.get(),
                     .PLLMUL => PLLMUL.get(),
                 };
@@ -409,7 +404,6 @@ pub fn Clock(comptime conf: Config) type {
                 return switch (self.value) {
                     .MCOMultDivisor => MCOMultDivisor.get(),
                     .HSIRC => HSIRC.get(),
-                    .HSIRC48 => HSIRC48.get(),
                     .HSIRC14 => HSIRC14.get(),
                     .HSEOSC => HSEOSC.get(),
                     .LSIRC => LSIRC.get(),

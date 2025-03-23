@@ -2,7 +2,6 @@ const std = @import("std");
 
 pub const CECMultConf = enum {
     HSICECDiv,
-    LSEOSC,
 };
 pub const HSEOSCConf = enum(comptime_int) {
     _,
@@ -65,27 +64,22 @@ pub const HSEPLLsourceDevisorConf = enum {
 };
 pub const USBMultConf = enum {
     PLLMUL,
-    HSIRC48,
 };
 pub const SysClkSourceConf = enum {
     HSIRC,
-    HSIRC48,
     HSEOSC,
     PLLMUL,
 };
 pub const RTCClkSourceConf = enum {
     HSERTCDevisor,
-    LSEOSC,
     LSIRC,
 };
 pub const MCOMultConf = enum {
     MCOMultDivisor,
     HSIRC,
-    HSIRC48,
     HSIRC14,
     HSEOSC,
     LSIRC,
-    LSEOSC,
     SysCLKOutput,
 };
 pub const AHBPrescalerConf = enum {
@@ -148,7 +142,6 @@ pub const I2C1MultConf = enum {
 pub const USART1MultConf = enum {
     SysCLKOutput,
     HSIRC,
-    LSEOSC,
     APB1Prescaler,
 };
 pub const PLLSourceConf = enum {
@@ -265,7 +258,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: CECMultType) comptime_int {
                 return switch (self.value) {
                     .HSICECDiv => HSICECDiv.get(),
-                    .LSEOSC => LSEOSC.get(),
                 };
             }
         };
@@ -298,7 +290,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: USBMultType) comptime_int {
                 return switch (self.value) {
                     .PLLMUL => PLLMUL.get(),
-                    .HSIRC48 => HSIRC48.get(),
                 };
             }
         };
@@ -318,7 +309,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: SysClkSourceType) comptime_int {
                 return switch (self.value) {
                     .HSIRC => HSIRC.get(),
-                    .HSIRC48 => HSIRC48.get(),
                     .HSEOSC => HSEOSC.get(),
                     .PLLMUL => PLLMUL.get(),
                 };
@@ -350,7 +340,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: RTCClkSourceType) comptime_int {
                 return switch (self.value) {
                     .HSERTCDevisor => HSERTCDevisor.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .LSIRC => LSIRC.get(),
                 };
             }
@@ -382,11 +371,9 @@ pub fn Clock(comptime conf: Config) type {
                 return switch (self.value) {
                     .MCOMultDivisor => MCOMultDivisor.get(),
                     .HSIRC => HSIRC.get(),
-                    .HSIRC48 => HSIRC48.get(),
                     .HSIRC14 => HSIRC14.get(),
                     .HSEOSC => HSEOSC.get(),
                     .LSIRC => LSIRC.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .SysCLKOutput => SysCLKOutput.get(),
                 };
             }
@@ -508,7 +495,6 @@ pub fn Clock(comptime conf: Config) type {
                 return switch (self.value) {
                     .SysCLKOutput => SysCLKOutput.get(),
                     .HSIRC => HSIRC.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .APB1Prescaler => APB1Prescaler.get(),
                 };
             }

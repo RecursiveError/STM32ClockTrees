@@ -2,7 +2,6 @@ const std = @import("std");
 
 pub const CECMultConf = enum {
     HSICECDiv,
-    LSEOSC,
 };
 pub const HSEOSCConf = enum(comptime_int) {
     _,
@@ -75,7 +74,6 @@ pub const SysClkSourceConf = enum {
 };
 pub const RTCClkSourceConf = enum {
     HSERTCDevisor,
-    LSEOSC,
     LSIRC,
 };
 pub const MCOMultDivisorConf = enum {
@@ -96,7 +94,6 @@ pub const MCOMultConf = enum {
     HSIRC14,
     HSEOSC,
     LSIRC,
-    LSEOSC,
     SysCLKOutput,
 };
 pub const MCODividerConf = enum {
@@ -182,7 +179,6 @@ pub const I2C1MultConf = enum {
 pub const USART1MultConf = enum {
     SysCLKOutput,
     HSIRC,
-    LSEOSC,
     APB1Prescaler,
 };
 pub const PLLSourceConf = enum {
@@ -347,7 +343,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: CECMultType) comptime_int {
                 return switch (self.value) {
                     .HSICECDiv => HSICECDiv.get(),
-                    .LSEOSC => LSEOSC.get(),
                 };
             }
         };
@@ -432,7 +427,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: RTCClkSourceType) comptime_int {
                 return switch (self.value) {
                     .HSERTCDevisor => HSERTCDevisor.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .LSIRC => LSIRC.get(),
                 };
             }
@@ -470,7 +464,6 @@ pub fn Clock(comptime conf: Config) type {
                     .HSIRC14 => HSIRC14.get(),
                     .HSEOSC => HSEOSC.get(),
                     .LSIRC => LSIRC.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .SysCLKOutput => SysCLKOutput.get(),
                 };
             }
@@ -605,7 +598,6 @@ pub fn Clock(comptime conf: Config) type {
                 return switch (self.value) {
                     .SysCLKOutput => SysCLKOutput.get(),
                     .HSIRC => HSIRC.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .APB1Prescaler => APB1Prescaler.get(),
                 };
             }

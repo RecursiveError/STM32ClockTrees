@@ -265,7 +265,6 @@ pub const I2C3MultConf = enum {
     SysCLKOutput,
 };
 pub const I2SSrcConf = enum {
-    I2S_CKIN,
     SysCLKOutput,
 };
 pub const USART1MultConf = enum {
@@ -796,7 +795,6 @@ pub fn Clock(comptime conf: Config) type {
             value: I2SSrcConf,
             pub fn get(comptime self: I2SSrcType) comptime_int {
                 return switch (self.value) {
-                    .I2S_CKIN => I2S_CKIN.get(),
                     .SysCLKOutput => SysCLKOutput.get(),
                 };
             }

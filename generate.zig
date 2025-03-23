@@ -8,6 +8,8 @@ const Output = ClockTree.Output;
 const Input = ClockTree.Input;
 const ReferenceValue = ClockTree.ReferenceValue;
 
+var nameMap: std.StringHashMap(bool) = undefined;
+
 pub fn main() !void {
     var out_buffer: [50]u8 = undefined;
     var json_dir = try std.fs.cwd().openDir("out-json", .{ .iterate = true });
@@ -33,6 +35,14 @@ pub fn main() !void {
     }
 }
 
+fn load_global_map(tree: *const Tree, alloc: std.mem.Allocator) !void {
+    var map = std.StringHashMap(bool).init(alloc);
+    for (tree.element) |element| {
+        try map.put(element.name, true);
+    }
+    nameMap = map;
+}
+
 fn create_files(json_file: std.fs.File, out_name: []const u8) !void {
     var arena_state = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena_state.deinit();
@@ -44,6 +54,7 @@ fn create_files(json_file: std.fs.File, out_name: []const u8) !void {
     std.fs.cwd().deleteFile(out_name) catch {};
     const zig_file = try std.fs.cwd().createFile(out_name, .{ .truncate = false });
     errdefer zig_file.close();
+    try load_global_map(tree, arena);
     _ = try zig_file.write("const std = @import(\"std\");\n\n\n");
     try create_configs(tree, zig_file.writer().any());
     try create_conf_struct(tree, zig_file.writer().any());
@@ -51,6 +62,10 @@ fn create_files(json_file: std.fs.File, out_name: []const u8) !void {
     zig_file.close();
     var ch = std.process.Child.init(&[_][]const u8{ "zig", "fmt", out_name }, arena);
     _ = try ch.spawnAndWait();
+}
+
+fn check_input(name: []const u8) bool {
+    return nameMap.get(name) orelse false;
 }
 
 //========= config types =========
@@ -90,7 +105,7 @@ fn create_list_config(element: *const Element, list: ClockTree.ReferenceNumberLi
     const postfix = ListMap.get(element.Elementtype) orelse return error.InvalidListType;
 
     try writer.print(
-        \\pub const {s}Conf = enum{{
+        \\pub const @"{s}Conf" = enum{{
         \\  const this = @This();
         \\
     , .{element.name});
@@ -127,11 +142,13 @@ fn create_list_config(element: *const Element, list: ClockTree.ReferenceNumberLi
 }
 
 fn create_mutiplexor_config(element: *const Element, writer: std.io.AnyWriter) !void {
-    try writer.print("pub const {s}Conf = enum{{\n", .{element.name});
+    try writer.print("pub const @\"{s}Conf\" = enum{{\n", .{element.name});
     for (element.sources) |sources| {
         switch (sources) {
             .input => |input| {
-                try writer.print("{s},\n", .{input.from});
+                if (check_input(input.from)) {
+                    try writer.print("{s},\n", .{input.from});
+                }
             },
             else => {},
         }
@@ -144,9 +161,9 @@ fn create_number_config(element: *const Element, number: ClockTree.ReferenceNumb
     const max = number.max;
     const min = number.min;
     try writer.print(
-        \\pub const {s}Conf = enum(comptime_int) {{
+        \\pub const @"{s}Conf" = enum(comptime_int) {{
         \\    _,
-        \\    pub fn get(num: {s}Conf) comptime_int {{
+        \\    pub fn get(num: @"{s}Conf") comptime_int {{
         \\        const val: comptime_int = @intFromEnum(num);
         \\        if (val < {d}) {{
         \\            @compileError("min value for {s} is {d}\n");
@@ -182,14 +199,14 @@ fn create_conf_struct(tree: *const Tree, writer: std.io.AnyWriter) !void {
 
         switch (element.reference) {
             .Number => |number| {
-                try writer.print("{s}: {s}Conf = @enumFromInt({d}),\n", .{ name, name, number.default });
+                try writer.print("{s}: @\"{s}Conf\" = @enumFromInt({d}),\n", .{ name, name, number.default });
             },
             .NumberList => |list| {
                 const postfix = ListMap.get(element.Elementtype) orelse unreachable; //has already been verified in the configuration step
                 const number = list.default;
                 const aux: u32 = @intFromFloat(number);
 
-                try writer.print("{s}: {s}Conf = ", .{ name, name });
+                try writer.print("{s}: @\"{s}Conf\" = ", .{ name, name });
                 if (number == @as(f32, @floatFromInt(aux))) {
                     try writer.print(".{s}{d}", .{ postfix, number });
                 } else {
@@ -198,7 +215,7 @@ fn create_conf_struct(tree: *const Tree, writer: std.io.AnyWriter) !void {
                 try writer.print(",\n", .{});
             },
             .Input => |input| {
-                try writer.print("{s}: {s}Conf = .{s},\n", .{ name, name, input.DefaultInput });
+                try writer.print("{s}: @\"{s}Conf\" = .{s},\n", .{ name, name, input.DefaultInput });
             },
             else => {},
         }
@@ -272,10 +289,10 @@ fn create_mul(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
     switch (element.reference) {
         .NumberList => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -298,10 +315,10 @@ fn create_mul(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
         },
         .Number => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -324,9 +341,9 @@ fn create_mul(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
         },
         .FixedNumber => |num| {
             try writer.print(
-                \\const {s}Type = struct {{
+                \\const @"{s}Type" = struct {{
                 \\
-                \\        pub fn get(_:*const {s}Type) comptime_int {{
+                \\        pub fn get(_:*const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -411,10 +428,10 @@ fn create_mulfrac(element: *const Element, writer: std.io.AnyWriter) anyerror!vo
     switch (element.reference) {
         .NumberList => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}else if(!@hasDecl(this, "{s}")){{
@@ -446,10 +463,10 @@ fn create_mulfrac(element: *const Element, writer: std.io.AnyWriter) anyerror!vo
         },
         .Number => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}else if(!@hasDecl(this, "{s}")){{
@@ -481,9 +498,9 @@ fn create_mulfrac(element: *const Element, writer: std.io.AnyWriter) anyerror!vo
         },
         .FixedNumber => |num| {
             try writer.print(
-                \\const {s}Type = struct {{
+                \\const @"{s}Type" = struct {{
                 \\
-                \\        pub fn get(_:*const {s}Type) comptime_int {{
+                \\        pub fn get(_:*const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}else if(!@hasDecl(this, "{s}")){{
@@ -525,10 +542,10 @@ fn create_div(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
     switch (element.reference) {
         .NumberList => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -551,10 +568,10 @@ fn create_div(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
         },
         .Number => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\        value: {s}Conf,
+                \\const @"{s}Type" = struct {{
+                \\        value: @"{s}Conf",
                 \\
-                \\        pub fn get(self: *const {s}Type) comptime_int {{
+                \\        pub fn get(self: *const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -577,9 +594,9 @@ fn create_div(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
         },
         .FixedNumber => |num| {
             try writer.print(
-                \\const {s}Type = struct {{
+                \\const @"{s}Type" = struct {{
                 \\
-                \\        pub fn get(_:*const {s}Type) comptime_int {{
+                \\        pub fn get(_:*const @"{s}Type") comptime_int {{
                 \\            if (!@hasDecl(this, "{s}")) {{
                 \\              @compileError("No Input {s} for {s}\n");
                 \\            }}
@@ -609,9 +626,9 @@ fn create_div(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
 fn create_multiplex(element: *const Element, writer: std.io.AnyWriter) anyerror!void {
     const name = element.name;
     try writer.print(
-        \\const {s}Type = struct {{
-        \\  value: {s}Conf,
-        \\  pub fn get(comptime self: {s}Type) comptime_int {{
+        \\const @"{s}Type" = struct {{
+        \\  value: @"{s}Conf",
+        \\  pub fn get(comptime self: @"{s}Type") comptime_int {{
         \\      return switch(self.value) {{
         \\
     , .{ name, name, name });
@@ -619,7 +636,9 @@ fn create_multiplex(element: *const Element, writer: std.io.AnyWriter) anyerror!
     for (element.sources) |source| {
         switch (source) {
             .input => |input| {
-                try writer.print(".{s} => {s}.get(),\n ", .{ input.from, input.from });
+                if (check_input(input.from)) {
+                    try writer.print(".{s} => {s}.get(),\n ", .{ input.from, input.from });
+                }
             },
             else => {},
         }
@@ -639,8 +658,8 @@ fn create_output(element: *const Element, writer: std.io.AnyWriter) anyerror!voi
     switch (element.reference) {
         .Number => |num| {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\  pub fn get(_:*const {s}Type) comptime_int {{
+                \\const @"{s}Type" = struct {{
+                \\  pub fn get(_:*const @"{s}Type") comptime_int {{
                 \\      const from_input = {s}.get();
                 \\      if(from_input < {d}){{
                 \\          @compileError(std.fmt.comptimePrint("Underflow clock from {s} on {s} | recive {s} min {d}\n", .{{from_input}}));
@@ -670,8 +689,8 @@ fn create_output(element: *const Element, writer: std.io.AnyWriter) anyerror!voi
         },
         else => {
             try writer.print(
-                \\const {s}Type = struct{{
-                \\  pub fn get(_:*const {s}Type) comptime_int{{
+                \\const @"{s}Type" = struct{{
+                \\  pub fn get(_:*const @"{s}Type") comptime_int{{
                 \\      return {s}.get();
                 \\  }}
                 \\}};
@@ -686,9 +705,9 @@ fn create_source(element: *const Element, writer: std.io.AnyWriter) anyerror!voi
     switch (element.reference) {
         .Number, .NumberList => {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\  value: {s}Conf,
-                \\  pub fn get(comptime self: {s}Type) comptime_int {{ 
+                \\const @"{s}Type" = struct {{
+                \\  value: @"{s}Conf",
+                \\  pub fn get(comptime self: @"{s}Type") comptime_int {{ 
                 \\      return self.value.get(); 
                 \\  }}
                 \\}};
@@ -697,8 +716,8 @@ fn create_source(element: *const Element, writer: std.io.AnyWriter) anyerror!voi
         },
         .FixedNumber => |num| {
             try writer.print(
-                \\const {s}Type = struct {{
-                \\  pub fn get(_:*const {s}Type) comptime_int {{ 
+                \\const @"{s}Type" = struct {{
+                \\  pub fn get(_:*const @"{s}Type") comptime_int {{ 
                 \\      return {d}; 
                 \\  }}
                 \\}};
@@ -709,7 +728,7 @@ fn create_source(element: *const Element, writer: std.io.AnyWriter) anyerror!voi
     }
 }
 
-const FixedFormat = "{s}const {s} = {s}Type{{}};\n";
+const FixedFormat = "{s}const @\"{s}\" = @\"{s}Type\"{{}};\n";
 fn create_clock_instances(tree: *const Tree, writer: std.io.AnyWriter) !void {
     for (tree.element) |element| {
         const name = element.name;
@@ -724,7 +743,7 @@ fn create_clock_instances(tree: *const Tree, writer: std.io.AnyWriter) !void {
                     try writer.print(FixedFormat, .{ prefix, name, name });
                     continue;
                 }
-                try writer.print("{s}const {s} = {s}Type{{ .value = conf.{s}}};\n", .{
+                try writer.print("{s}const @\"{s}\" = @\"{s}Type\"{{ .value = conf.{s}}};\n", .{
                     prefix,
                     name,
                     name,
@@ -750,7 +769,7 @@ fn create_clock_validate(tree: *const Tree, writer: std.io.AnyWriter) !void {
 
         if (std.mem.eql(u8, element.Elementtype, "activeOutput")) {
             try writer.print(
-                \\ _ = {s}.get();
+                \\ _ = @"{s}".get();
                 \\
             , .{name});
         }

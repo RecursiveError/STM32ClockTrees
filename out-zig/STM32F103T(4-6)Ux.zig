@@ -38,7 +38,6 @@ pub const SysClkSourceConf = enum {
 };
 pub const RTCClkSourceConf = enum {
     HSERTCDevisor,
-    LSEOSC,
     LSIRC,
 };
 pub const MCOMultConf = enum {
@@ -286,7 +285,6 @@ pub fn Clock(comptime conf: Config) type {
             pub fn get(comptime self: RTCClkSourceType) comptime_int {
                 return switch (self.value) {
                     .HSERTCDevisor => HSERTCDevisor.get(),
-                    .LSEOSC => LSEOSC.get(),
                     .LSIRC => LSIRC.get(),
                 };
             }

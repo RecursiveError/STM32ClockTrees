@@ -84,7 +84,11 @@ fn mcu_parser(doc: *const XmlParser.Document, alloc: std.mem.Allocator) !MCUName
         .DIE_file_name = "",
         .ref_file_name = undefined,
     };
-    try mcu.names.put(doc.root.attr("Line") orelse "noline", true);
+    const Line = doc.root.attr("Line") orelse "noline";
+    const Line2 = try alloc.alloc(u8, Line.len);
+
+    _ = std.mem.replace(u8, Line, " ", "_", Line2);
+    try mcu.names.put(Line, true);
     try mcu.names.put(doc.root.attr("Package") orelse "nopkg", true);
 
     for (doc.root.children()) |ch| {
