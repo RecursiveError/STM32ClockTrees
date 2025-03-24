@@ -80,6 +80,20 @@ pub const MSIRCConf = enum {
         };
     }
 };
+pub const XBAR0Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR0PredivConf = enum {
     const this = @This();
     DIV1,
@@ -114,6 +128,20 @@ pub const XBAR0FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR1Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR1PredivConf = enum {
     const this = @This();
@@ -150,6 +178,20 @@ pub const XBAR1FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR2Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR2PredivConf = enum {
     const this = @This();
     DIV1,
@@ -184,6 +226,20 @@ pub const XBAR2FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR3Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR3PredivConf = enum {
     const this = @This();
@@ -220,6 +276,20 @@ pub const XBAR3FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR4Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR4PredivConf = enum {
     const this = @This();
     DIV1,
@@ -254,6 +324,20 @@ pub const XBAR4FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR5Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR5PredivConf = enum {
     const this = @This();
@@ -290,6 +374,20 @@ pub const XBAR5FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR6Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR6PredivConf = enum {
     const this = @This();
     DIV1,
@@ -324,6 +422,15 @@ pub const XBAR6FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR7Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR7PredivConf = enum {
     const this = @This();
@@ -360,6 +467,16 @@ pub const XBAR7FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR8Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR8PredivConf = enum {
     const this = @This();
     DIV1,
@@ -394,6 +511,16 @@ pub const XBAR8FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR9Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
 };
 pub const XBAR9PredivConf = enum {
     const this = @This();
@@ -430,6 +557,17 @@ pub const XBAR9FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR10Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    I2S_CKIN,
+};
 pub const XBAR10PredivConf = enum {
     const this = @This();
     DIV1,
@@ -464,6 +602,14 @@ pub const XBAR10FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR11Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
 };
 pub const XBAR11PredivConf = enum {
     const this = @This();
@@ -500,6 +646,15 @@ pub const XBAR11FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR12Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
+};
 pub const XBAR12PredivConf = enum {
     const this = @This();
     DIV1,
@@ -534,6 +689,15 @@ pub const XBAR12FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR13Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
 };
 pub const XBAR13PredivConf = enum {
     const this = @This();
@@ -570,6 +734,15 @@ pub const XBAR13FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR14Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
+};
 pub const XBAR14PredivConf = enum {
     const this = @This();
     DIV1,
@@ -604,6 +777,15 @@ pub const XBAR14FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR15Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
 };
 pub const XBAR15PredivConf = enum {
     const this = @This();
@@ -640,6 +822,17 @@ pub const XBAR15FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR16Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    I2S_CKIN,
+};
 pub const XBAR16PredivConf = enum {
     const this = @This();
     DIV1,
@@ -674,6 +867,17 @@ pub const XBAR16FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR17Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    I2S_CKIN,
 };
 pub const XBAR17PredivConf = enum {
     const this = @This();
@@ -710,6 +914,17 @@ pub const XBAR17FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR18Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    I2S_CKIN,
+};
 pub const XBAR18PredivConf = enum {
     const this = @This();
     DIV1,
@@ -744,6 +959,16 @@ pub const XBAR18FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR19Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
 };
 pub const XBAR19PredivConf = enum {
     const this = @This();
@@ -780,6 +1005,16 @@ pub const XBAR19FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR20Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR20PredivConf = enum {
     const this = @This();
     DIV1,
@@ -814,6 +1049,16 @@ pub const XBAR20FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR21Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
 };
 pub const XBAR21PredivConf = enum {
     const this = @This();
@@ -850,6 +1095,16 @@ pub const XBAR21FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR22Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR22PredivConf = enum {
     const this = @This();
     DIV1,
@@ -884,6 +1139,18 @@ pub const XBAR22FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR23Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
 };
 pub const XBAR23PredivConf = enum {
     const this = @This();
@@ -920,6 +1187,18 @@ pub const XBAR23FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR24Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+};
 pub const XBAR24PredivConf = enum {
     const this = @This();
     DIV1,
@@ -954,6 +1233,18 @@ pub const XBAR24FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR25Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
 };
 pub const XBAR25PredivConf = enum {
     const this = @This();
@@ -990,6 +1281,14 @@ pub const XBAR25FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR26Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR26PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1024,6 +1323,13 @@ pub const XBAR26FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR27Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR27PredivConf = enum {
     const this = @This();
@@ -1060,6 +1366,14 @@ pub const XBAR27FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR28Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR28PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1094,6 +1408,13 @@ pub const XBAR28FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR29Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR29PredivConf = enum {
     const this = @This();
@@ -1130,6 +1451,14 @@ pub const XBAR29FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR30Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR30PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1164,6 +1493,14 @@ pub const XBAR30FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR31Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
 };
 pub const XBAR31PredivConf = enum {
     const this = @This();
@@ -1200,6 +1537,14 @@ pub const XBAR31FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR32Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR32PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1234,6 +1579,15 @@ pub const XBAR32FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR33Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
 };
 pub const XBAR33PredivConf = enum {
     const this = @This();
@@ -1270,6 +1624,14 @@ pub const XBAR33FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR34Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR34PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1304,6 +1666,15 @@ pub const XBAR34FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR35Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
 };
 pub const XBAR35PredivConf = enum {
     const this = @This();
@@ -1340,6 +1711,15 @@ pub const XBAR35FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR36Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
+};
 pub const XBAR36PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1374,6 +1754,17 @@ pub const XBAR36FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR37Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    I2S_CKIN,
 };
 pub const XBAR37PredivConf = enum {
     const this = @This();
@@ -1410,6 +1801,15 @@ pub const XBAR37FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR38Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    MSIRC,
+};
 pub const XBAR38PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1444,6 +1844,16 @@ pub const XBAR38FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR39Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
 };
 pub const XBAR39PredivConf = enum {
     const this = @This();
@@ -1480,6 +1890,15 @@ pub const XBAR39FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR40Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR40PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1514,6 +1933,15 @@ pub const XBAR40FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR41Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR41PredivConf = enum {
     const this = @This();
@@ -1550,6 +1978,16 @@ pub const XBAR41FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR42Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR42PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1584,6 +2022,13 @@ pub const XBAR42FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR43Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR43PredivConf = enum {
     const this = @This();
@@ -1620,6 +2065,13 @@ pub const XBAR43FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR44Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+};
 pub const XBAR44PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1654,6 +2106,13 @@ pub const XBAR44FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR45Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR45PredivConf = enum {
     const this = @This();
@@ -1690,6 +2149,16 @@ pub const XBAR45FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR46Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR46PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1724,6 +2193,13 @@ pub const XBAR46FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR47Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR47PredivConf = enum {
     const this = @This();
@@ -1760,6 +2236,13 @@ pub const XBAR47FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR48Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+};
 pub const XBAR48PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1794,6 +2277,13 @@ pub const XBAR48FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR49Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR49PredivConf = enum {
     const this = @This();
@@ -1830,6 +2320,13 @@ pub const XBAR49FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR50Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+};
 pub const XBAR50PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1864,6 +2361,14 @@ pub const XBAR50FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR51Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
 };
 pub const XBAR51PredivConf = enum {
     const this = @This();
@@ -1900,6 +2405,14 @@ pub const XBAR51FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR52Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+};
 pub const XBAR52PredivConf = enum {
     const this = @This();
     DIV1,
@@ -1934,6 +2447,14 @@ pub const XBAR52FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR53Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
 };
 pub const XBAR53PredivConf = enum {
     const this = @This();
@@ -1970,6 +2491,13 @@ pub const XBAR53FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR54Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+};
 pub const XBAR54PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2004,6 +2532,13 @@ pub const XBAR54FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR55Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR55PredivConf = enum {
     const this = @This();
@@ -2040,6 +2575,16 @@ pub const XBAR55FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR56Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR56PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2074,6 +2619,14 @@ pub const XBAR56FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR57Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
 };
 pub const XBAR57PredivConf = enum {
     const this = @This();
@@ -2110,6 +2663,14 @@ pub const XBAR57FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR58Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSEOSC,
+};
 pub const XBAR58PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2144,6 +2705,13 @@ pub const XBAR58FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR59Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
 };
 pub const XBAR59PredivConf = enum {
     const this = @This();
@@ -2180,6 +2748,13 @@ pub const XBAR59FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR60Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+};
 pub const XBAR60PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2214,6 +2789,20 @@ pub const XBAR60FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const XBAR61Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
 };
 pub const XBAR61PredivConf = enum {
     const this = @This();
@@ -2250,6 +2839,20 @@ pub const XBAR61FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR62Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+};
 pub const XBAR62PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2285,6 +2888,16 @@ pub const XBAR62FindivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const XBAR63Conf = enum {
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+};
 pub const XBAR63PredivConf = enum {
     const this = @This();
     DIV1,
@@ -2319,6 +2932,188 @@ pub const XBAR63FindivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const CKINTSEL0Conf = enum {
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    PLL4Source,
+    PLL5Source,
+    PLL6Source,
+    PLL7Source,
+    PLL8Source,
+    PLL1Source,
+    PLL2Source,
+    PLL3Source,
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+    XBAR0Output,
+    XBAR1Output,
+    XBAR2Output,
+    XBAR3Output,
+    XBAR4Output,
+    XBAR5Output,
+    XBAR6Output,
+    XBAR7Output,
+    XBAR8Output,
+    XBAR9Output,
+    XBAR10Output,
+    XBAR11Output,
+    XBAR12Output,
+    XBAR13Output,
+    XBAR14Output,
+    XBAR15Output,
+    XBAR16Output,
+    XBAR17Output,
+    XBAR18Output,
+    XBAR19Output,
+    XBAR20Output,
+    XBAR21Output,
+    XBAR22Output,
+    XBAR23Output,
+    XBAR24Output,
+    XBAR25Output,
+    XBAR26Output,
+    XBAR27Output,
+    XBAR28Output,
+    XBAR29Output,
+    XBAR30Output,
+    XBAR31Output,
+    XBAR32Output,
+    XBAR33Output,
+    XBAR34Output,
+    XBAR35Output,
+    XBAR36Output,
+    XBAR37Output,
+    XBAR38Output,
+    XBAR39Output,
+    XBAR40Output,
+    XBAR41Output,
+    XBAR42Output,
+    XBAR43Output,
+    XBAR44Output,
+    XBAR45Output,
+    XBAR46Output,
+    XBAR47Output,
+    XBAR48Output,
+    XBAR49Output,
+    XBAR50Output,
+    XBAR51Output,
+    XBAR52Output,
+    XBAR53Output,
+    XBAR54Output,
+    XBAR55Output,
+    XBAR56Output,
+    XBAR57Output,
+    XBAR58Output,
+    XBAR59Output,
+    XBAR60Output,
+    XBAR61Output,
+    XBAR62Output,
+    XBAR63Output,
+};
+pub const CKEXTSEL0Conf = enum {
+    PLL1Div42,
+    PLL2Div4,
+    PLL3Div2,
+};
+pub const CKINTSEL1Conf = enum {
+    HSIRC,
+    HSEOSC,
+    MSIRC,
+    PLL4Source,
+    PLL5Source,
+    PLL6Source,
+    PLL7Source,
+    PLL8Source,
+    PLL1Source,
+    PLL2Source,
+    PLL3Source,
+    FOUTPOSTDIV4,
+    FOUTPOSTDIV5,
+    FOUTPOSTDIV6,
+    FOUTPOSTDIV7,
+    FOUTPOSTDIV8,
+    SPDIF,
+    I2S_CKIN,
+    LSIRC,
+    LSEOSC,
+    XBAR0Output,
+    XBAR1Output,
+    XBAR2Output,
+    XBAR3Output,
+    XBAR4Output,
+    XBAR5Output,
+    XBAR6Output,
+    XBAR7Output,
+    XBAR8Output,
+    XBAR9Output,
+    XBAR10Output,
+    XBAR11Output,
+    XBAR12Output,
+    XBAR13Output,
+    XBAR14Output,
+    XBAR15Output,
+    XBAR16Output,
+    XBAR17Output,
+    XBAR18Output,
+    XBAR19Output,
+    XBAR20Output,
+    XBAR21Output,
+    XBAR22Output,
+    XBAR23Output,
+    XBAR24Output,
+    XBAR25Output,
+    XBAR26Output,
+    XBAR27Output,
+    XBAR28Output,
+    XBAR29Output,
+    XBAR30Output,
+    XBAR31Output,
+    XBAR32Output,
+    XBAR33Output,
+    XBAR34Output,
+    XBAR35Output,
+    XBAR36Output,
+    XBAR37Output,
+    XBAR38Output,
+    XBAR39Output,
+    XBAR40Output,
+    XBAR41Output,
+    XBAR42Output,
+    XBAR43Output,
+    XBAR44Output,
+    XBAR45Output,
+    XBAR46Output,
+    XBAR47Output,
+    XBAR48Output,
+    XBAR49Output,
+    XBAR50Output,
+    XBAR51Output,
+    XBAR52Output,
+    XBAR53Output,
+    XBAR54Output,
+    XBAR55Output,
+    XBAR56Output,
+    XBAR57Output,
+    XBAR58Output,
+    XBAR59Output,
+    XBAR60Output,
+    XBAR61Output,
+    XBAR62Output,
+    XBAR63Output,
+};
+pub const CKEXTSEL1Conf = enum {
+    PLL1Div42,
+    PLL2Div4,
+    PLL3Div2,
 };
 pub const OBS0Conf = enum {
     CKINTSEL0,
@@ -3326,134 +4121,202 @@ pub const Config = struct {
     SPDIF: SPDIFConf = @enumFromInt(12288000),
     LSEOSC: LSEOSCConf = @enumFromInt(32768),
     MSIRC: MSIRCConf = .CLOCK_16,
+    XBAR0: XBAR0Conf = .HSIRC,
     XBAR0Prediv: XBAR0PredivConf = .DIV1,
     XBAR0Findiv: XBAR0FindivConf = @enumFromInt(1),
+    XBAR1: XBAR1Conf = .HSIRC,
     XBAR1Prediv: XBAR1PredivConf = .DIV1,
     XBAR1Findiv: XBAR1FindivConf = @enumFromInt(1),
+    XBAR2: XBAR2Conf = .HSIRC,
     XBAR2Prediv: XBAR2PredivConf = .DIV1,
     XBAR2Findiv: XBAR2FindivConf = @enumFromInt(1),
+    XBAR3: XBAR3Conf = .HSIRC,
     XBAR3Prediv: XBAR3PredivConf = .DIV1,
     XBAR3Findiv: XBAR3FindivConf = @enumFromInt(1),
+    XBAR4: XBAR4Conf = .HSIRC,
     XBAR4Prediv: XBAR4PredivConf = .DIV1,
     XBAR4Findiv: XBAR4FindivConf = @enumFromInt(1),
+    XBAR5: XBAR5Conf = .HSIRC,
     XBAR5Prediv: XBAR5PredivConf = .DIV1,
     XBAR5Findiv: XBAR5FindivConf = @enumFromInt(1),
+    XBAR6: XBAR6Conf = .HSIRC,
     XBAR6Prediv: XBAR6PredivConf = .DIV1,
     XBAR6Findiv: XBAR6FindivConf = @enumFromInt(1),
+    XBAR7: XBAR7Conf = .LSIRC,
     XBAR7Prediv: XBAR7PredivConf = .DIV1,
     XBAR7Findiv: XBAR7FindivConf = @enumFromInt(1),
+    XBAR8: XBAR8Conf = .HSIRC,
     XBAR8Prediv: XBAR8PredivConf = .DIV1,
     XBAR8Findiv: XBAR8FindivConf = @enumFromInt(1),
+    XBAR9: XBAR9Conf = .HSIRC,
     XBAR9Prediv: XBAR9PredivConf = .DIV1,
     XBAR9Findiv: XBAR9FindivConf = @enumFromInt(1),
+    XBAR10: XBAR10Conf = .HSIRC,
     XBAR10Prediv: XBAR10PredivConf = .DIV1,
     XBAR10Findiv: XBAR10FindivConf = @enumFromInt(1),
+    XBAR11: XBAR11Conf = .HSIRC,
     XBAR11Prediv: XBAR11PredivConf = .DIV1,
     XBAR11Findiv: XBAR11FindivConf = @enumFromInt(1),
+    XBAR12: XBAR12Conf = .HSIRC,
     XBAR12Prediv: XBAR12PredivConf = .DIV1,
     XBAR12Findiv: XBAR12FindivConf = @enumFromInt(1),
+    XBAR13: XBAR13Conf = .HSIRC,
     XBAR13Prediv: XBAR13PredivConf = .DIV1,
     XBAR13Findiv: XBAR13FindivConf = @enumFromInt(1),
+    XBAR14: XBAR14Conf = .HSIRC,
     XBAR14Prediv: XBAR14PredivConf = .DIV1,
     XBAR14Findiv: XBAR14FindivConf = @enumFromInt(1),
+    XBAR15: XBAR15Conf = .HSIRC,
     XBAR15Prediv: XBAR15PredivConf = .DIV1,
     XBAR15Findiv: XBAR15FindivConf = @enumFromInt(1),
+    XBAR16: XBAR16Conf = .HSIRC,
     XBAR16Prediv: XBAR16PredivConf = .DIV1,
     XBAR16Findiv: XBAR16FindivConf = @enumFromInt(1),
+    XBAR17: XBAR17Conf = .HSIRC,
     XBAR17Prediv: XBAR17PredivConf = .DIV1,
     XBAR17Findiv: XBAR17FindivConf = @enumFromInt(1),
+    XBAR18: XBAR18Conf = .HSIRC,
     XBAR18Prediv: XBAR18PredivConf = .DIV1,
     XBAR18Findiv: XBAR18FindivConf = @enumFromInt(1),
+    XBAR19: XBAR19Conf = .HSIRC,
     XBAR19Prediv: XBAR19PredivConf = .DIV1,
     XBAR19Findiv: XBAR19FindivConf = @enumFromInt(1),
+    XBAR20: XBAR20Conf = .HSIRC,
     XBAR20Prediv: XBAR20PredivConf = .DIV1,
     XBAR20Findiv: XBAR20FindivConf = @enumFromInt(1),
+    XBAR21: XBAR21Conf = .HSIRC,
     XBAR21Prediv: XBAR21PredivConf = .DIV1,
     XBAR21Findiv: XBAR21FindivConf = @enumFromInt(1),
+    XBAR22: XBAR22Conf = .HSIRC,
     XBAR22Prediv: XBAR22PredivConf = .DIV1,
     XBAR22Findiv: XBAR22FindivConf = @enumFromInt(1),
+    XBAR23: XBAR23Conf = .HSIRC,
     XBAR23Prediv: XBAR23PredivConf = .DIV1,
     XBAR23Findiv: XBAR23FindivConf = @enumFromInt(1),
+    XBAR24: XBAR24Conf = .HSIRC,
     XBAR24Prediv: XBAR24PredivConf = .DIV1,
     XBAR24Findiv: XBAR24FindivConf = @enumFromInt(1),
+    XBAR25: XBAR25Conf = .HSIRC,
     XBAR25Prediv: XBAR25PredivConf = .DIV1,
     XBAR25Findiv: XBAR25FindivConf = @enumFromInt(1),
+    XBAR26: XBAR26Conf = .HSEOSC,
     XBAR26Prediv: XBAR26PredivConf = .DIV1,
     XBAR26Findiv: XBAR26FindivConf = @enumFromInt(1),
+    XBAR27: XBAR27Conf = .FOUTPOSTDIV8,
     XBAR27Prediv: XBAR27PredivConf = .DIV1,
     XBAR27Findiv: XBAR27FindivConf = @enumFromInt(1),
+    XBAR28: XBAR28Conf = .HSEOSC,
     XBAR28Prediv: XBAR28PredivConf = .DIV1,
     XBAR28Findiv: XBAR28FindivConf = @enumFromInt(1),
+    XBAR29: XBAR29Conf = .FOUTPOSTDIV8,
     XBAR29Prediv: XBAR29PredivConf = .DIV1,
     XBAR29Findiv: XBAR29FindivConf = @enumFromInt(1),
+    XBAR30: XBAR30Conf = .HSEOSC,
     XBAR30Prediv: XBAR30PredivConf = .DIV1,
     XBAR30Findiv: XBAR30FindivConf = @enumFromInt(1),
+    XBAR31: XBAR31Conf = .HSEOSC,
     XBAR31Prediv: XBAR31PredivConf = .DIV1,
     XBAR31Findiv: XBAR31FindivConf = @enumFromInt(1),
+    XBAR32: XBAR32Conf = .HSEOSC,
     XBAR32Prediv: XBAR32PredivConf = .DIV1,
     XBAR32Findiv: XBAR32FindivConf = @enumFromInt(1),
+    XBAR33: XBAR33Conf = .HSIRC,
     XBAR33Prediv: XBAR33PredivConf = .DIV1,
     XBAR33Findiv: XBAR33FindivConf = @enumFromInt(1),
+    XBAR34: XBAR34Conf = .HSEOSC,
     XBAR34Prediv: XBAR34PredivConf = .DIV1,
     XBAR34Findiv: XBAR34FindivConf = @enumFromInt(1),
+    XBAR35: XBAR35Conf = .HSIRC,
     XBAR35Prediv: XBAR35PredivConf = .DIV1,
     XBAR35Findiv: XBAR35FindivConf = @enumFromInt(1),
+    XBAR36: XBAR36Conf = .MSIRC,
     XBAR36Prediv: XBAR36PredivConf = .DIV1,
     XBAR36Findiv: XBAR36FindivConf = @enumFromInt(1),
+    XBAR37: XBAR37Conf = .HSIRC,
     XBAR37Prediv: XBAR37PredivConf = .DIV1,
     XBAR37Findiv: XBAR37FindivConf = @enumFromInt(1),
+    XBAR38: XBAR38Conf = .HSIRC,
     XBAR38Prediv: XBAR38PredivConf = .DIV1,
     XBAR38Findiv: XBAR38FindivConf = @enumFromInt(1),
+    XBAR39: XBAR39Conf = .HSIRC,
     XBAR39Prediv: XBAR39PredivConf = .DIV1,
     XBAR39Findiv: XBAR39FindivConf = @enumFromInt(1),
+    XBAR40: XBAR40Conf = .LSIRC,
     XBAR40Prediv: XBAR40PredivConf = .DIV1,
     XBAR40Findiv: XBAR40FindivConf = @enumFromInt(1),
+    XBAR41: XBAR41Conf = .LSIRC,
     XBAR41Prediv: XBAR41PredivConf = .DIV1,
     XBAR41Findiv: XBAR41FindivConf = @enumFromInt(1),
+    XBAR42: XBAR42Conf = .HSIRC,
     XBAR42Prediv: XBAR42PredivConf = .DIV1,
     XBAR42Findiv: XBAR42FindivConf = @enumFromInt(1),
+    XBAR43: XBAR43Conf = .FOUTPOSTDIV8,
     XBAR43Prediv: XBAR43PredivConf = .DIV1,
     XBAR43Findiv: XBAR43FindivConf = @enumFromInt(1),
+    XBAR44: XBAR44Conf = .FOUTPOSTDIV8,
     XBAR44Prediv: XBAR44PredivConf = .DIV1,
     XBAR44Findiv: XBAR44FindivConf = @enumFromInt(1),
+    XBAR45: XBAR45Conf = .FOUTPOSTDIV8,
     XBAR45Prediv: XBAR45PredivConf = .DIV1,
     XBAR45Findiv: XBAR45FindivConf = @enumFromInt(1),
+    XBAR46: XBAR46Conf = .HSIRC,
     XBAR46Prediv: XBAR46PredivConf = .DIV1,
     XBAR46Findiv: XBAR46FindivConf = @enumFromInt(1),
+    XBAR47: XBAR47Conf = .FOUTPOSTDIV8,
     XBAR47Prediv: XBAR47PredivConf = .DIV1,
     XBAR47Findiv: XBAR47FindivConf = @enumFromInt(1),
+    XBAR48: XBAR48Conf = .FOUTPOSTDIV8,
     XBAR48Prediv: XBAR48PredivConf = .DIV1,
     XBAR48Findiv: XBAR48FindivConf = @enumFromInt(1),
+    XBAR49: XBAR49Conf = .FOUTPOSTDIV8,
     XBAR49Prediv: XBAR49PredivConf = .DIV1,
     XBAR49Findiv: XBAR49FindivConf = @enumFromInt(1),
+    XBAR50: XBAR50Conf = .FOUTPOSTDIV8,
     XBAR50Prediv: XBAR50PredivConf = .DIV1,
     XBAR50Findiv: XBAR50FindivConf = @enumFromInt(1),
+    XBAR51: XBAR51Conf = .HSIRC,
     XBAR51Prediv: XBAR51PredivConf = .DIV1,
     XBAR51Findiv: XBAR51FindivConf = @enumFromInt(1),
+    XBAR52: XBAR52Conf = .HSIRC,
     XBAR52Prediv: XBAR52PredivConf = .DIV1,
     XBAR52Findiv: XBAR52FindivConf = @enumFromInt(1),
+    XBAR53: XBAR53Conf = .HSIRC,
     XBAR53Prediv: XBAR53PredivConf = .DIV1,
     XBAR53Findiv: XBAR53FindivConf = @enumFromInt(1),
+    XBAR54: XBAR54Conf = .FOUTPOSTDIV8,
     XBAR54Prediv: XBAR54PredivConf = .DIV1,
     XBAR54Findiv: XBAR54FindivConf = @enumFromInt(1),
+    XBAR55: XBAR55Conf = .FOUTPOSTDIV8,
     XBAR55Prediv: XBAR55PredivConf = .DIV1,
     XBAR55Findiv: XBAR55FindivConf = @enumFromInt(1),
+    XBAR56: XBAR56Conf = .HSIRC,
     XBAR56Prediv: XBAR56PredivConf = .DIV1,
     XBAR56Findiv: XBAR56FindivConf = @enumFromInt(1),
+    XBAR57: XBAR57Conf = .HSEOSC,
     XBAR57Prediv: XBAR57PredivConf = .DIV1,
     XBAR57Findiv: XBAR57FindivConf = @enumFromInt(1),
+    XBAR58: XBAR58Conf = .HSEOSC,
     XBAR58Prediv: XBAR58PredivConf = .DIV1,
     XBAR58Findiv: XBAR58FindivConf = @enumFromInt(1),
+    XBAR59: XBAR59Conf = .FOUTPOSTDIV8,
     XBAR59Prediv: XBAR59PredivConf = .DIV1,
     XBAR59Findiv: XBAR59FindivConf = @enumFromInt(1),
+    XBAR60: XBAR60Conf = .FOUTPOSTDIV8,
     XBAR60Prediv: XBAR60PredivConf = .DIV1,
     XBAR60Findiv: XBAR60FindivConf = @enumFromInt(1),
+    XBAR61: XBAR61Conf = .HSIRC,
     XBAR61Prediv: XBAR61PredivConf = .DIV1,
     XBAR61Findiv: XBAR61FindivConf = @enumFromInt(1),
+    XBAR62: XBAR62Conf = .HSIRC,
     XBAR62Prediv: XBAR62PredivConf = .DIV1,
     XBAR62Findiv: XBAR62FindivConf = @enumFromInt(1),
+    XBAR63: XBAR63Conf = .HSIRC,
     XBAR63Prediv: XBAR63PredivConf = .DIV1,
     XBAR63Findiv: XBAR63FindivConf = @enumFromInt(1),
+    CKINTSEL0: CKINTSEL0Conf = .MSIRC,
+    CKEXTSEL0: CKEXTSEL0Conf = .PLL1Div42,
+    CKINTSEL1: CKINTSEL1Conf = .MSIRC,
+    CKEXTSEL1: CKEXTSEL1Conf = .PLL1Div42,
     OBS0: OBS0Conf = .CKINTSEL0,
     OBS1: OBS1Conf = .CKINTSEL1,
     MCO1Mult: MCO1MultConf = .XBAR61Output,
@@ -3581,6 +4444,25 @@ pub fn Clock(comptime conf: Config) type {
                 return 12288000;
             }
         };
+        const XBAR0Type = struct {
+            value: XBAR0Conf,
+            pub fn get(comptime self: XBAR0Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR0PredivType = struct {
             value: XBAR0PredivConf,
 
@@ -3616,6 +4498,25 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR0Findiv on XBAR0Output | recive {d} max 400000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR1Type = struct {
+            value: XBAR1Conf,
+            pub fn get(comptime self: XBAR1Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR1PredivType = struct {
@@ -3655,6 +4556,25 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR2Type = struct {
+            value: XBAR2Conf,
+            pub fn get(comptime self: XBAR2Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR2PredivType = struct {
             value: XBAR2PredivConf,
 
@@ -3690,6 +4610,25 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR2Findiv on XBAR2Output | recive {d} max 600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR3Type = struct {
+            value: XBAR3Conf,
+            pub fn get(comptime self: XBAR3Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR3PredivType = struct {
@@ -3729,6 +4668,25 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR4Type = struct {
+            value: XBAR4Conf,
+            pub fn get(comptime self: XBAR4Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR4PredivType = struct {
             value: XBAR4PredivConf,
 
@@ -3764,6 +4722,25 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR4Findiv on XBAR4Output | recive {d} max 300000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR5Type = struct {
+            value: XBAR5Conf,
+            pub fn get(comptime self: XBAR5Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR5PredivType = struct {
@@ -3803,6 +4780,25 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR6Type = struct {
+            value: XBAR6Conf,
+            pub fn get(comptime self: XBAR6Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR6PredivType = struct {
             value: XBAR6PredivConf,
 
@@ -3838,6 +4834,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR6Findiv on XBAR6Output | recive {d} max 600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR7Type = struct {
+            value: XBAR7Conf,
+            pub fn get(comptime self: XBAR7Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR7PredivType = struct {
@@ -3877,6 +4887,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR8Type = struct {
+            value: XBAR8Conf,
+            pub fn get(comptime self: XBAR8Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR8PredivType = struct {
             value: XBAR8PredivConf,
 
@@ -3912,6 +4937,21 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR8Findiv on XBAR8Output | recive {d} max 100000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR9Type = struct {
+            value: XBAR9Conf,
+            pub fn get(comptime self: XBAR9Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR9PredivType = struct {
@@ -3951,6 +4991,22 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR10Type = struct {
+            value: XBAR10Conf,
+            pub fn get(comptime self: XBAR10Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
+            }
+        };
         const XBAR10PredivType = struct {
             value: XBAR10PredivConf,
 
@@ -3986,6 +5042,19 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR10Findiv on XBAR10Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR11Type = struct {
+            value: XBAR11Conf,
+            pub fn get(comptime self: XBAR11Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                };
             }
         };
         const XBAR11PredivType = struct {
@@ -4025,6 +5094,20 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR12Type = struct {
+            value: XBAR12Conf,
+            pub fn get(comptime self: XBAR12Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR12PredivType = struct {
             value: XBAR12PredivConf,
 
@@ -4060,6 +5143,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR12Findiv on XBAR12Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR13Type = struct {
+            value: XBAR13Conf,
+            pub fn get(comptime self: XBAR13Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR13PredivType = struct {
@@ -4099,6 +5196,20 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR14Type = struct {
+            value: XBAR14Conf,
+            pub fn get(comptime self: XBAR14Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR14PredivType = struct {
             value: XBAR14PredivConf,
 
@@ -4134,6 +5245,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR14Findiv on XBAR14Output | recive {d} max 100000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR15Type = struct {
+            value: XBAR15Conf,
+            pub fn get(comptime self: XBAR15Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR15PredivType = struct {
@@ -4173,6 +5298,22 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR16Type = struct {
+            value: XBAR16Conf,
+            pub fn get(comptime self: XBAR16Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
+            }
+        };
         const XBAR16PredivType = struct {
             value: XBAR16PredivConf,
 
@@ -4208,6 +5349,22 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR16Findiv on XBAR16Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR17Type = struct {
+            value: XBAR17Conf,
+            pub fn get(comptime self: XBAR17Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
             }
         };
         const XBAR17PredivType = struct {
@@ -4247,6 +5404,22 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR18Type = struct {
+            value: XBAR18Conf,
+            pub fn get(comptime self: XBAR18Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
+            }
+        };
         const XBAR18PredivType = struct {
             value: XBAR18PredivConf,
 
@@ -4282,6 +5455,21 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR18Findiv on XBAR18Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR19Type = struct {
+            value: XBAR19Conf,
+            pub fn get(comptime self: XBAR19Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR19PredivType = struct {
@@ -4321,6 +5509,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR20Type = struct {
+            value: XBAR20Conf,
+            pub fn get(comptime self: XBAR20Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR20PredivType = struct {
             value: XBAR20PredivConf,
 
@@ -4356,6 +5559,21 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR20Findiv on XBAR20Output | recive {d} max 100000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR21Type = struct {
+            value: XBAR21Conf,
+            pub fn get(comptime self: XBAR21Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR21PredivType = struct {
@@ -4395,6 +5613,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR22Type = struct {
+            value: XBAR22Conf,
+            pub fn get(comptime self: XBAR22Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR22PredivType = struct {
             value: XBAR22PredivConf,
 
@@ -4430,6 +5663,23 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR22Findiv on XBAR22Output | recive {d} max 100000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR23Type = struct {
+            value: XBAR23Conf,
+            pub fn get(comptime self: XBAR23Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
             }
         };
         const XBAR23PredivType = struct {
@@ -4469,6 +5719,23 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR24Type = struct {
+            value: XBAR24Conf,
+            pub fn get(comptime self: XBAR24Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
+            }
+        };
         const XBAR24PredivType = struct {
             value: XBAR24PredivConf,
 
@@ -4504,6 +5771,23 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR24Findiv on XBAR24Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR25Type = struct {
+            value: XBAR25Conf,
+            pub fn get(comptime self: XBAR25Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
             }
         };
         const XBAR25PredivType = struct {
@@ -4543,6 +5827,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR26Type = struct {
+            value: XBAR26Conf,
+            pub fn get(comptime self: XBAR26Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR26PredivType = struct {
             value: XBAR26PredivConf,
 
@@ -4578,6 +5875,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR26Findiv on XBAR26Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR27Type = struct {
+            value: XBAR27Conf,
+            pub fn get(comptime self: XBAR27Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR27PredivType = struct {
@@ -4617,6 +5926,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR28Type = struct {
+            value: XBAR28Conf,
+            pub fn get(comptime self: XBAR28Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR28PredivType = struct {
             value: XBAR28PredivConf,
 
@@ -4652,6 +5974,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR28Findiv on XBAR28Output | recive {d} max 27000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR29Type = struct {
+            value: XBAR29Conf,
+            pub fn get(comptime self: XBAR29Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR29PredivType = struct {
@@ -4691,6 +6025,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR30Type = struct {
+            value: XBAR30Conf,
+            pub fn get(comptime self: XBAR30Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR30PredivType = struct {
             value: XBAR30PredivConf,
 
@@ -4726,6 +6073,19 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR30Findiv on XBAR30Output | recive {d} max 20000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR31Type = struct {
+            value: XBAR31Conf,
+            pub fn get(comptime self: XBAR31Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
             }
         };
         const XBAR31PredivType = struct {
@@ -4765,6 +6125,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR32Type = struct {
+            value: XBAR32Conf,
+            pub fn get(comptime self: XBAR32Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR32PredivType = struct {
             value: XBAR32PredivConf,
 
@@ -4800,6 +6173,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR32Findiv on XBAR32Output | recive {d} max 27000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR33Type = struct {
+            value: XBAR33Conf,
+            pub fn get(comptime self: XBAR33Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
             }
         };
         const XBAR33PredivType = struct {
@@ -4839,6 +6226,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR34Type = struct {
+            value: XBAR34Conf,
+            pub fn get(comptime self: XBAR34Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR34PredivType = struct {
             value: XBAR34PredivConf,
 
@@ -4874,6 +6274,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR34Findiv on XBAR34Output | recive {d} max 25000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR35Type = struct {
+            value: XBAR35Conf,
+            pub fn get(comptime self: XBAR35Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
             }
         };
         const XBAR35PredivType = struct {
@@ -4913,6 +6327,20 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR36Type = struct {
+            value: XBAR36Conf,
+            pub fn get(comptime self: XBAR36Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR36PredivType = struct {
             value: XBAR36PredivConf,
 
@@ -4948,6 +6376,22 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR36Findiv on XBAR36Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR37Type = struct {
+            value: XBAR37Conf,
+            pub fn get(comptime self: XBAR37Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                };
             }
         };
         const XBAR37PredivType = struct {
@@ -4987,6 +6431,20 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR38Type = struct {
+            value: XBAR38Conf,
+            pub fn get(comptime self: XBAR38Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR38PredivType = struct {
             value: XBAR38PredivConf,
 
@@ -5022,6 +6480,21 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR38Findiv on XBAR38Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR39Type = struct {
+            value: XBAR39Conf,
+            pub fn get(comptime self: XBAR39Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
             }
         };
         const XBAR39PredivType = struct {
@@ -5061,6 +6534,20 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR40Type = struct {
+            value: XBAR40Conf,
+            pub fn get(comptime self: XBAR40Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR40PredivType = struct {
             value: XBAR40PredivConf,
 
@@ -5096,6 +6583,20 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR40Findiv on XBAR40Output | recive {d} max 100000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR41Type = struct {
+            value: XBAR41Conf,
+            pub fn get(comptime self: XBAR41Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR41PredivType = struct {
@@ -5135,6 +6636,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR42Type = struct {
+            value: XBAR42Conf,
+            pub fn get(comptime self: XBAR42Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR42PredivType = struct {
             value: XBAR42PredivConf,
 
@@ -5170,6 +6686,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR42Findiv on XBAR42Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR43Type = struct {
+            value: XBAR43Conf,
+            pub fn get(comptime self: XBAR43Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR43PredivType = struct {
@@ -5209,6 +6737,18 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR44Type = struct {
+            value: XBAR44Conf,
+            pub fn get(comptime self: XBAR44Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
+            }
+        };
         const XBAR44PredivType = struct {
             value: XBAR44PredivConf,
 
@@ -5244,6 +6784,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR44Findiv on XBAR44Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR45Type = struct {
+            value: XBAR45Conf,
+            pub fn get(comptime self: XBAR45Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR45PredivType = struct {
@@ -5283,6 +6835,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR46Type = struct {
+            value: XBAR46Conf,
+            pub fn get(comptime self: XBAR46Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR46PredivType = struct {
             value: XBAR46PredivConf,
 
@@ -5318,6 +6885,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR46Findiv on XBAR46Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR47Type = struct {
+            value: XBAR47Conf,
+            pub fn get(comptime self: XBAR47Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR47PredivType = struct {
@@ -5357,6 +6936,18 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR48Type = struct {
+            value: XBAR48Conf,
+            pub fn get(comptime self: XBAR48Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
+            }
+        };
         const XBAR48PredivType = struct {
             value: XBAR48PredivConf,
 
@@ -5392,6 +6983,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR48Findiv on XBAR48Output | recive {d} max 133000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR49Type = struct {
+            value: XBAR49Conf,
+            pub fn get(comptime self: XBAR49Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR49PredivType = struct {
@@ -5431,6 +7034,18 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR50Type = struct {
+            value: XBAR50Conf,
+            pub fn get(comptime self: XBAR50Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
+            }
+        };
         const XBAR50PredivType = struct {
             value: XBAR50PredivConf,
 
@@ -5466,6 +7081,19 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR50Findiv on XBAR50Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR51Type = struct {
+            value: XBAR51Conf,
+            pub fn get(comptime self: XBAR51Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                };
             }
         };
         const XBAR51PredivType = struct {
@@ -5505,6 +7133,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR52Type = struct {
+            value: XBAR52Conf,
+            pub fn get(comptime self: XBAR52Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                };
+            }
+        };
         const XBAR52PredivType = struct {
             value: XBAR52PredivConf,
 
@@ -5540,6 +7181,19 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR52Findiv on XBAR52Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR53Type = struct {
+            value: XBAR53Conf,
+            pub fn get(comptime self: XBAR53Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                };
             }
         };
         const XBAR53PredivType = struct {
@@ -5579,6 +7233,18 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR54Type = struct {
+            value: XBAR54Conf,
+            pub fn get(comptime self: XBAR54Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
+            }
+        };
         const XBAR54PredivType = struct {
             value: XBAR54PredivConf,
 
@@ -5614,6 +7280,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR54Findiv on XBAR54Output | recive {d} max 125000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR55Type = struct {
+            value: XBAR55Conf,
+            pub fn get(comptime self: XBAR55Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR55PredivType = struct {
@@ -5653,6 +7331,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR56Type = struct {
+            value: XBAR56Conf,
+            pub fn get(comptime self: XBAR56Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR56PredivType = struct {
             value: XBAR56PredivConf,
 
@@ -5688,6 +7381,19 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR56Findiv on XBAR56Output | recive {d} max 200000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR57Type = struct {
+            value: XBAR57Conf,
+            pub fn get(comptime self: XBAR57Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
             }
         };
         const XBAR57PredivType = struct {
@@ -5727,6 +7433,19 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR58Type = struct {
+            value: XBAR58Conf,
+            pub fn get(comptime self: XBAR58Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSEOSC => HSEOSC.get(),
+                };
+            }
+        };
         const XBAR58PredivType = struct {
             value: XBAR58PredivConf,
 
@@ -5762,6 +7481,18 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR58Findiv on XBAR58Output | recive {d} max 24000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR59Type = struct {
+            value: XBAR59Conf,
+            pub fn get(comptime self: XBAR59Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
             }
         };
         const XBAR59PredivType = struct {
@@ -5801,6 +7532,18 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR60Type = struct {
+            value: XBAR60Conf,
+            pub fn get(comptime self: XBAR60Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                };
+            }
+        };
         const XBAR60PredivType = struct {
             value: XBAR60PredivConf,
 
@@ -5836,6 +7579,25 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR60Findiv on XBAR60Output | recive {d} max 50000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const XBAR61Type = struct {
+            value: XBAR61Conf,
+            pub fn get(comptime self: XBAR61Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
             }
         };
         const XBAR61PredivType = struct {
@@ -5875,6 +7637,25 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR62Type = struct {
+            value: XBAR62Conf,
+            pub fn get(comptime self: XBAR62Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                };
+            }
+        };
         const XBAR62PredivType = struct {
             value: XBAR62PredivConf,
 
@@ -5912,6 +7693,21 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const XBAR63Type = struct {
+            value: XBAR63Conf,
+            pub fn get(comptime self: XBAR63Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                };
+            }
+        };
         const XBAR63PredivType = struct {
             value: XBAR63PredivConf,
 
@@ -5947,6 +7743,208 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from XBAR63Findiv on XBAR63Output | recive {d} max 400000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const CKINTSEL0Type = struct {
+            value: CKINTSEL0Conf,
+            pub fn get(comptime self: CKINTSEL0Type) comptime_int {
+                return switch (self.value) {
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .PLL4Source => PLL4Source.get(),
+                    .PLL5Source => PLL5Source.get(),
+                    .PLL6Source => PLL6Source.get(),
+                    .PLL7Source => PLL7Source.get(),
+                    .PLL8Source => PLL8Source.get(),
+                    .PLL1Source => PLL1Source.get(),
+                    .PLL2Source => PLL2Source.get(),
+                    .PLL3Source => PLL3Source.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                    .XBAR0Output => XBAR0Output.get(),
+                    .XBAR1Output => XBAR1Output.get(),
+                    .XBAR2Output => XBAR2Output.get(),
+                    .XBAR3Output => XBAR3Output.get(),
+                    .XBAR4Output => XBAR4Output.get(),
+                    .XBAR5Output => XBAR5Output.get(),
+                    .XBAR6Output => XBAR6Output.get(),
+                    .XBAR7Output => XBAR7Output.get(),
+                    .XBAR8Output => XBAR8Output.get(),
+                    .XBAR9Output => XBAR9Output.get(),
+                    .XBAR10Output => XBAR10Output.get(),
+                    .XBAR11Output => XBAR11Output.get(),
+                    .XBAR12Output => XBAR12Output.get(),
+                    .XBAR13Output => XBAR13Output.get(),
+                    .XBAR14Output => XBAR14Output.get(),
+                    .XBAR15Output => XBAR15Output.get(),
+                    .XBAR16Output => XBAR16Output.get(),
+                    .XBAR17Output => XBAR17Output.get(),
+                    .XBAR18Output => XBAR18Output.get(),
+                    .XBAR19Output => XBAR19Output.get(),
+                    .XBAR20Output => XBAR20Output.get(),
+                    .XBAR21Output => XBAR21Output.get(),
+                    .XBAR22Output => XBAR22Output.get(),
+                    .XBAR23Output => XBAR23Output.get(),
+                    .XBAR24Output => XBAR24Output.get(),
+                    .XBAR25Output => XBAR25Output.get(),
+                    .XBAR26Output => XBAR26Output.get(),
+                    .XBAR27Output => XBAR27Output.get(),
+                    .XBAR28Output => XBAR28Output.get(),
+                    .XBAR29Output => XBAR29Output.get(),
+                    .XBAR30Output => XBAR30Output.get(),
+                    .XBAR31Output => XBAR31Output.get(),
+                    .XBAR32Output => XBAR32Output.get(),
+                    .XBAR33Output => XBAR33Output.get(),
+                    .XBAR34Output => XBAR34Output.get(),
+                    .XBAR35Output => XBAR35Output.get(),
+                    .XBAR36Output => XBAR36Output.get(),
+                    .XBAR37Output => XBAR37Output.get(),
+                    .XBAR38Output => XBAR38Output.get(),
+                    .XBAR39Output => XBAR39Output.get(),
+                    .XBAR40Output => XBAR40Output.get(),
+                    .XBAR41Output => XBAR41Output.get(),
+                    .XBAR42Output => XBAR42Output.get(),
+                    .XBAR43Output => XBAR43Output.get(),
+                    .XBAR44Output => XBAR44Output.get(),
+                    .XBAR45Output => XBAR45Output.get(),
+                    .XBAR46Output => XBAR46Output.get(),
+                    .XBAR47Output => XBAR47Output.get(),
+                    .XBAR48Output => XBAR48Output.get(),
+                    .XBAR49Output => XBAR49Output.get(),
+                    .XBAR50Output => XBAR50Output.get(),
+                    .XBAR51Output => XBAR51Output.get(),
+                    .XBAR52Output => XBAR52Output.get(),
+                    .XBAR53Output => XBAR53Output.get(),
+                    .XBAR54Output => XBAR54Output.get(),
+                    .XBAR55Output => XBAR55Output.get(),
+                    .XBAR56Output => XBAR56Output.get(),
+                    .XBAR57Output => XBAR57Output.get(),
+                    .XBAR58Output => XBAR58Output.get(),
+                    .XBAR59Output => XBAR59Output.get(),
+                    .XBAR60Output => XBAR60Output.get(),
+                    .XBAR61Output => XBAR61Output.get(),
+                    .XBAR62Output => XBAR62Output.get(),
+                    .XBAR63Output => XBAR63Output.get(),
+                };
+            }
+        };
+        const CKEXTSEL0Type = struct {
+            value: CKEXTSEL0Conf,
+            pub fn get(comptime self: CKEXTSEL0Type) comptime_int {
+                return switch (self.value) {
+                    .PLL1Div42 => PLL1Div42.get(),
+                    .PLL2Div4 => PLL2Div4.get(),
+                    .PLL3Div2 => PLL3Div2.get(),
+                };
+            }
+        };
+        const CKINTSEL1Type = struct {
+            value: CKINTSEL1Conf,
+            pub fn get(comptime self: CKINTSEL1Type) comptime_int {
+                return switch (self.value) {
+                    .HSIRC => HSIRC.get(),
+                    .HSEOSC => HSEOSC.get(),
+                    .MSIRC => MSIRC.get(),
+                    .PLL4Source => PLL4Source.get(),
+                    .PLL5Source => PLL5Source.get(),
+                    .PLL6Source => PLL6Source.get(),
+                    .PLL7Source => PLL7Source.get(),
+                    .PLL8Source => PLL8Source.get(),
+                    .PLL1Source => PLL1Source.get(),
+                    .PLL2Source => PLL2Source.get(),
+                    .PLL3Source => PLL3Source.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                    .FOUTPOSTDIV5 => FOUTPOSTDIV5.get(),
+                    .FOUTPOSTDIV6 => FOUTPOSTDIV6.get(),
+                    .FOUTPOSTDIV7 => FOUTPOSTDIV7.get(),
+                    .FOUTPOSTDIV8 => FOUTPOSTDIV8.get(),
+                    .SPDIF => SPDIF.get(),
+                    .I2S_CKIN => I2S_CKIN.get(),
+                    .LSIRC => LSIRC.get(),
+                    .LSEOSC => LSEOSC.get(),
+                    .XBAR0Output => XBAR0Output.get(),
+                    .XBAR1Output => XBAR1Output.get(),
+                    .XBAR2Output => XBAR2Output.get(),
+                    .XBAR3Output => XBAR3Output.get(),
+                    .XBAR4Output => XBAR4Output.get(),
+                    .XBAR5Output => XBAR5Output.get(),
+                    .XBAR6Output => XBAR6Output.get(),
+                    .XBAR7Output => XBAR7Output.get(),
+                    .XBAR8Output => XBAR8Output.get(),
+                    .XBAR9Output => XBAR9Output.get(),
+                    .XBAR10Output => XBAR10Output.get(),
+                    .XBAR11Output => XBAR11Output.get(),
+                    .XBAR12Output => XBAR12Output.get(),
+                    .XBAR13Output => XBAR13Output.get(),
+                    .XBAR14Output => XBAR14Output.get(),
+                    .XBAR15Output => XBAR15Output.get(),
+                    .XBAR16Output => XBAR16Output.get(),
+                    .XBAR17Output => XBAR17Output.get(),
+                    .XBAR18Output => XBAR18Output.get(),
+                    .XBAR19Output => XBAR19Output.get(),
+                    .XBAR20Output => XBAR20Output.get(),
+                    .XBAR21Output => XBAR21Output.get(),
+                    .XBAR22Output => XBAR22Output.get(),
+                    .XBAR23Output => XBAR23Output.get(),
+                    .XBAR24Output => XBAR24Output.get(),
+                    .XBAR25Output => XBAR25Output.get(),
+                    .XBAR26Output => XBAR26Output.get(),
+                    .XBAR27Output => XBAR27Output.get(),
+                    .XBAR28Output => XBAR28Output.get(),
+                    .XBAR29Output => XBAR29Output.get(),
+                    .XBAR30Output => XBAR30Output.get(),
+                    .XBAR31Output => XBAR31Output.get(),
+                    .XBAR32Output => XBAR32Output.get(),
+                    .XBAR33Output => XBAR33Output.get(),
+                    .XBAR34Output => XBAR34Output.get(),
+                    .XBAR35Output => XBAR35Output.get(),
+                    .XBAR36Output => XBAR36Output.get(),
+                    .XBAR37Output => XBAR37Output.get(),
+                    .XBAR38Output => XBAR38Output.get(),
+                    .XBAR39Output => XBAR39Output.get(),
+                    .XBAR40Output => XBAR40Output.get(),
+                    .XBAR41Output => XBAR41Output.get(),
+                    .XBAR42Output => XBAR42Output.get(),
+                    .XBAR43Output => XBAR43Output.get(),
+                    .XBAR44Output => XBAR44Output.get(),
+                    .XBAR45Output => XBAR45Output.get(),
+                    .XBAR46Output => XBAR46Output.get(),
+                    .XBAR47Output => XBAR47Output.get(),
+                    .XBAR48Output => XBAR48Output.get(),
+                    .XBAR49Output => XBAR49Output.get(),
+                    .XBAR50Output => XBAR50Output.get(),
+                    .XBAR51Output => XBAR51Output.get(),
+                    .XBAR52Output => XBAR52Output.get(),
+                    .XBAR53Output => XBAR53Output.get(),
+                    .XBAR54Output => XBAR54Output.get(),
+                    .XBAR55Output => XBAR55Output.get(),
+                    .XBAR56Output => XBAR56Output.get(),
+                    .XBAR57Output => XBAR57Output.get(),
+                    .XBAR58Output => XBAR58Output.get(),
+                    .XBAR59Output => XBAR59Output.get(),
+                    .XBAR60Output => XBAR60Output.get(),
+                    .XBAR61Output => XBAR61Output.get(),
+                    .XBAR62Output => XBAR62Output.get(),
+                    .XBAR63Output => XBAR63Output.get(),
+                };
+            }
+        };
+        const CKEXTSEL1Type = struct {
+            value: CKEXTSEL1Conf,
+            pub fn get(comptime self: CKEXTSEL1Type) comptime_int {
+                return switch (self.value) {
+                    .PLL1Div42 => PLL1Div42.get(),
+                    .PLL2Div4 => PLL2Div4.get(),
+                    .PLL3Div2 => PLL3Div2.get(),
+                };
             }
         };
         const OBS0Type = struct {
@@ -7141,198 +9139,266 @@ pub fn Clock(comptime conf: Config) type {
         const LSEOSC = LSEOSCType{ .value = conf.LSEOSC };
         const MSIRC = MSIRCType{ .value = conf.MSIRC };
         const I2S_CKIN = I2S_CKINType{};
+        const XBAR0 = XBAR0Type{ .value = conf.XBAR0 };
         const XBAR0Prediv = XBAR0PredivType{ .value = conf.XBAR0Prediv };
         const XBAR0Findiv = XBAR0FindivType{ .value = conf.XBAR0Findiv };
         pub const XBAR0Output = XBAR0OutputType{};
+        const XBAR1 = XBAR1Type{ .value = conf.XBAR1 };
         const XBAR1Prediv = XBAR1PredivType{ .value = conf.XBAR1Prediv };
         const XBAR1Findiv = XBAR1FindivType{ .value = conf.XBAR1Findiv };
         pub const XBAR1Output = XBAR1OutputType{};
+        const XBAR2 = XBAR2Type{ .value = conf.XBAR2 };
         const XBAR2Prediv = XBAR2PredivType{ .value = conf.XBAR2Prediv };
         const XBAR2Findiv = XBAR2FindivType{ .value = conf.XBAR2Findiv };
         pub const XBAR2Output = XBAR2OutputType{};
+        const XBAR3 = XBAR3Type{ .value = conf.XBAR3 };
         const XBAR3Prediv = XBAR3PredivType{ .value = conf.XBAR3Prediv };
         const XBAR3Findiv = XBAR3FindivType{ .value = conf.XBAR3Findiv };
         pub const XBAR3Output = XBAR3OutputType{};
+        const XBAR4 = XBAR4Type{ .value = conf.XBAR4 };
         const XBAR4Prediv = XBAR4PredivType{ .value = conf.XBAR4Prediv };
         const XBAR4Findiv = XBAR4FindivType{ .value = conf.XBAR4Findiv };
         pub const XBAR4Output = XBAR4OutputType{};
+        const XBAR5 = XBAR5Type{ .value = conf.XBAR5 };
         const XBAR5Prediv = XBAR5PredivType{ .value = conf.XBAR5Prediv };
         const XBAR5Findiv = XBAR5FindivType{ .value = conf.XBAR5Findiv };
         pub const XBAR5Output = XBAR5OutputType{};
+        const XBAR6 = XBAR6Type{ .value = conf.XBAR6 };
         const XBAR6Prediv = XBAR6PredivType{ .value = conf.XBAR6Prediv };
         const XBAR6Findiv = XBAR6FindivType{ .value = conf.XBAR6Findiv };
         pub const XBAR6Output = XBAR6OutputType{};
+        const XBAR7 = XBAR7Type{ .value = conf.XBAR7 };
         const XBAR7Prediv = XBAR7PredivType{ .value = conf.XBAR7Prediv };
         const XBAR7Findiv = XBAR7FindivType{ .value = conf.XBAR7Findiv };
         pub const XBAR7Output = XBAR7OutputType{};
+        const XBAR8 = XBAR8Type{ .value = conf.XBAR8 };
         const XBAR8Prediv = XBAR8PredivType{ .value = conf.XBAR8Prediv };
         const XBAR8Findiv = XBAR8FindivType{ .value = conf.XBAR8Findiv };
         pub const XBAR8Output = XBAR8OutputType{};
+        const XBAR9 = XBAR9Type{ .value = conf.XBAR9 };
         const XBAR9Prediv = XBAR9PredivType{ .value = conf.XBAR9Prediv };
         const XBAR9Findiv = XBAR9FindivType{ .value = conf.XBAR9Findiv };
         pub const XBAR9Output = XBAR9OutputType{};
+        const XBAR10 = XBAR10Type{ .value = conf.XBAR10 };
         const XBAR10Prediv = XBAR10PredivType{ .value = conf.XBAR10Prediv };
         const XBAR10Findiv = XBAR10FindivType{ .value = conf.XBAR10Findiv };
         pub const XBAR10Output = XBAR10OutputType{};
+        const XBAR11 = XBAR11Type{ .value = conf.XBAR11 };
         const XBAR11Prediv = XBAR11PredivType{ .value = conf.XBAR11Prediv };
         const XBAR11Findiv = XBAR11FindivType{ .value = conf.XBAR11Findiv };
         pub const XBAR11Output = XBAR11OutputType{};
+        const XBAR12 = XBAR12Type{ .value = conf.XBAR12 };
         const XBAR12Prediv = XBAR12PredivType{ .value = conf.XBAR12Prediv };
         const XBAR12Findiv = XBAR12FindivType{ .value = conf.XBAR12Findiv };
         pub const XBAR12Output = XBAR12OutputType{};
+        const XBAR13 = XBAR13Type{ .value = conf.XBAR13 };
         const XBAR13Prediv = XBAR13PredivType{ .value = conf.XBAR13Prediv };
         const XBAR13Findiv = XBAR13FindivType{ .value = conf.XBAR13Findiv };
         pub const XBAR13Output = XBAR13OutputType{};
+        const XBAR14 = XBAR14Type{ .value = conf.XBAR14 };
         const XBAR14Prediv = XBAR14PredivType{ .value = conf.XBAR14Prediv };
         const XBAR14Findiv = XBAR14FindivType{ .value = conf.XBAR14Findiv };
         pub const XBAR14Output = XBAR14OutputType{};
+        const XBAR15 = XBAR15Type{ .value = conf.XBAR15 };
         const XBAR15Prediv = XBAR15PredivType{ .value = conf.XBAR15Prediv };
         const XBAR15Findiv = XBAR15FindivType{ .value = conf.XBAR15Findiv };
         pub const XBAR15Output = XBAR15OutputType{};
+        const XBAR16 = XBAR16Type{ .value = conf.XBAR16 };
         const XBAR16Prediv = XBAR16PredivType{ .value = conf.XBAR16Prediv };
         const XBAR16Findiv = XBAR16FindivType{ .value = conf.XBAR16Findiv };
         pub const XBAR16Output = XBAR16OutputType{};
+        const XBAR17 = XBAR17Type{ .value = conf.XBAR17 };
         const XBAR17Prediv = XBAR17PredivType{ .value = conf.XBAR17Prediv };
         const XBAR17Findiv = XBAR17FindivType{ .value = conf.XBAR17Findiv };
         pub const XBAR17Output = XBAR17OutputType{};
+        const XBAR18 = XBAR18Type{ .value = conf.XBAR18 };
         const XBAR18Prediv = XBAR18PredivType{ .value = conf.XBAR18Prediv };
         const XBAR18Findiv = XBAR18FindivType{ .value = conf.XBAR18Findiv };
         pub const XBAR18Output = XBAR18OutputType{};
+        const XBAR19 = XBAR19Type{ .value = conf.XBAR19 };
         const XBAR19Prediv = XBAR19PredivType{ .value = conf.XBAR19Prediv };
         const XBAR19Findiv = XBAR19FindivType{ .value = conf.XBAR19Findiv };
         pub const XBAR19Output = XBAR19OutputType{};
+        const XBAR20 = XBAR20Type{ .value = conf.XBAR20 };
         const XBAR20Prediv = XBAR20PredivType{ .value = conf.XBAR20Prediv };
         const XBAR20Findiv = XBAR20FindivType{ .value = conf.XBAR20Findiv };
         pub const XBAR20Output = XBAR20OutputType{};
+        const XBAR21 = XBAR21Type{ .value = conf.XBAR21 };
         const XBAR21Prediv = XBAR21PredivType{ .value = conf.XBAR21Prediv };
         const XBAR21Findiv = XBAR21FindivType{ .value = conf.XBAR21Findiv };
         pub const XBAR21Output = XBAR21OutputType{};
+        const XBAR22 = XBAR22Type{ .value = conf.XBAR22 };
         const XBAR22Prediv = XBAR22PredivType{ .value = conf.XBAR22Prediv };
         const XBAR22Findiv = XBAR22FindivType{ .value = conf.XBAR22Findiv };
         pub const XBAR22Output = XBAR22OutputType{};
+        const XBAR23 = XBAR23Type{ .value = conf.XBAR23 };
         const XBAR23Prediv = XBAR23PredivType{ .value = conf.XBAR23Prediv };
         const XBAR23Findiv = XBAR23FindivType{ .value = conf.XBAR23Findiv };
         pub const XBAR23Output = XBAR23OutputType{};
+        const XBAR24 = XBAR24Type{ .value = conf.XBAR24 };
         const XBAR24Prediv = XBAR24PredivType{ .value = conf.XBAR24Prediv };
         const XBAR24Findiv = XBAR24FindivType{ .value = conf.XBAR24Findiv };
         pub const XBAR24Output = XBAR24OutputType{};
+        const XBAR25 = XBAR25Type{ .value = conf.XBAR25 };
         const XBAR25Prediv = XBAR25PredivType{ .value = conf.XBAR25Prediv };
         const XBAR25Findiv = XBAR25FindivType{ .value = conf.XBAR25Findiv };
         pub const XBAR25Output = XBAR25OutputType{};
+        const XBAR26 = XBAR26Type{ .value = conf.XBAR26 };
         const XBAR26Prediv = XBAR26PredivType{ .value = conf.XBAR26Prediv };
         const XBAR26Findiv = XBAR26FindivType{ .value = conf.XBAR26Findiv };
         pub const XBAR26Output = XBAR26OutputType{};
+        const XBAR27 = XBAR27Type{ .value = conf.XBAR27 };
         const XBAR27Prediv = XBAR27PredivType{ .value = conf.XBAR27Prediv };
         const XBAR27Findiv = XBAR27FindivType{ .value = conf.XBAR27Findiv };
         pub const XBAR27Output = XBAR27OutputType{};
+        const XBAR28 = XBAR28Type{ .value = conf.XBAR28 };
         const XBAR28Prediv = XBAR28PredivType{ .value = conf.XBAR28Prediv };
         const XBAR28Findiv = XBAR28FindivType{ .value = conf.XBAR28Findiv };
         pub const XBAR28Output = XBAR28OutputType{};
+        const XBAR29 = XBAR29Type{ .value = conf.XBAR29 };
         const XBAR29Prediv = XBAR29PredivType{ .value = conf.XBAR29Prediv };
         const XBAR29Findiv = XBAR29FindivType{ .value = conf.XBAR29Findiv };
         pub const XBAR29Output = XBAR29OutputType{};
+        const XBAR30 = XBAR30Type{ .value = conf.XBAR30 };
         const XBAR30Prediv = XBAR30PredivType{ .value = conf.XBAR30Prediv };
         const XBAR30Findiv = XBAR30FindivType{ .value = conf.XBAR30Findiv };
         pub const XBAR30Output = XBAR30OutputType{};
+        const XBAR31 = XBAR31Type{ .value = conf.XBAR31 };
         const XBAR31Prediv = XBAR31PredivType{ .value = conf.XBAR31Prediv };
         const XBAR31Findiv = XBAR31FindivType{ .value = conf.XBAR31Findiv };
         pub const XBAR31Output = XBAR31OutputType{};
+        const XBAR32 = XBAR32Type{ .value = conf.XBAR32 };
         const XBAR32Prediv = XBAR32PredivType{ .value = conf.XBAR32Prediv };
         const XBAR32Findiv = XBAR32FindivType{ .value = conf.XBAR32Findiv };
         pub const XBAR32Output = XBAR32OutputType{};
+        const XBAR33 = XBAR33Type{ .value = conf.XBAR33 };
         const XBAR33Prediv = XBAR33PredivType{ .value = conf.XBAR33Prediv };
         const XBAR33Findiv = XBAR33FindivType{ .value = conf.XBAR33Findiv };
         pub const XBAR33Output = XBAR33OutputType{};
+        const XBAR34 = XBAR34Type{ .value = conf.XBAR34 };
         const XBAR34Prediv = XBAR34PredivType{ .value = conf.XBAR34Prediv };
         const XBAR34Findiv = XBAR34FindivType{ .value = conf.XBAR34Findiv };
         pub const XBAR34Output = XBAR34OutputType{};
+        const XBAR35 = XBAR35Type{ .value = conf.XBAR35 };
         const XBAR35Prediv = XBAR35PredivType{ .value = conf.XBAR35Prediv };
         const XBAR35Findiv = XBAR35FindivType{ .value = conf.XBAR35Findiv };
         pub const XBAR35Output = XBAR35OutputType{};
+        const XBAR36 = XBAR36Type{ .value = conf.XBAR36 };
         const XBAR36Prediv = XBAR36PredivType{ .value = conf.XBAR36Prediv };
         const XBAR36Findiv = XBAR36FindivType{ .value = conf.XBAR36Findiv };
         pub const XBAR36Output = XBAR36OutputType{};
+        const XBAR37 = XBAR37Type{ .value = conf.XBAR37 };
         const XBAR37Prediv = XBAR37PredivType{ .value = conf.XBAR37Prediv };
         const XBAR37Findiv = XBAR37FindivType{ .value = conf.XBAR37Findiv };
         pub const XBAR37Output = XBAR37OutputType{};
+        const XBAR38 = XBAR38Type{ .value = conf.XBAR38 };
         const XBAR38Prediv = XBAR38PredivType{ .value = conf.XBAR38Prediv };
         const XBAR38Findiv = XBAR38FindivType{ .value = conf.XBAR38Findiv };
         pub const XBAR38Output = XBAR38OutputType{};
+        const XBAR39 = XBAR39Type{ .value = conf.XBAR39 };
         const XBAR39Prediv = XBAR39PredivType{ .value = conf.XBAR39Prediv };
         const XBAR39Findiv = XBAR39FindivType{ .value = conf.XBAR39Findiv };
         pub const XBAR39Output = XBAR39OutputType{};
+        const XBAR40 = XBAR40Type{ .value = conf.XBAR40 };
         const XBAR40Prediv = XBAR40PredivType{ .value = conf.XBAR40Prediv };
         const XBAR40Findiv = XBAR40FindivType{ .value = conf.XBAR40Findiv };
         pub const XBAR40Output = XBAR40OutputType{};
+        const XBAR41 = XBAR41Type{ .value = conf.XBAR41 };
         const XBAR41Prediv = XBAR41PredivType{ .value = conf.XBAR41Prediv };
         const XBAR41Findiv = XBAR41FindivType{ .value = conf.XBAR41Findiv };
         pub const XBAR41Output = XBAR41OutputType{};
+        const XBAR42 = XBAR42Type{ .value = conf.XBAR42 };
         const XBAR42Prediv = XBAR42PredivType{ .value = conf.XBAR42Prediv };
         const XBAR42Findiv = XBAR42FindivType{ .value = conf.XBAR42Findiv };
         pub const XBAR42Output = XBAR42OutputType{};
+        const XBAR43 = XBAR43Type{ .value = conf.XBAR43 };
         const XBAR43Prediv = XBAR43PredivType{ .value = conf.XBAR43Prediv };
         const XBAR43Findiv = XBAR43FindivType{ .value = conf.XBAR43Findiv };
         pub const XBAR43Output = XBAR43OutputType{};
+        const XBAR44 = XBAR44Type{ .value = conf.XBAR44 };
         const XBAR44Prediv = XBAR44PredivType{ .value = conf.XBAR44Prediv };
         const XBAR44Findiv = XBAR44FindivType{ .value = conf.XBAR44Findiv };
         pub const XBAR44Output = XBAR44OutputType{};
+        const XBAR45 = XBAR45Type{ .value = conf.XBAR45 };
         const XBAR45Prediv = XBAR45PredivType{ .value = conf.XBAR45Prediv };
         const XBAR45Findiv = XBAR45FindivType{ .value = conf.XBAR45Findiv };
         pub const XBAR45Output = XBAR45OutputType{};
+        const XBAR46 = XBAR46Type{ .value = conf.XBAR46 };
         const XBAR46Prediv = XBAR46PredivType{ .value = conf.XBAR46Prediv };
         const XBAR46Findiv = XBAR46FindivType{ .value = conf.XBAR46Findiv };
         pub const XBAR46Output = XBAR46OutputType{};
+        const XBAR47 = XBAR47Type{ .value = conf.XBAR47 };
         const XBAR47Prediv = XBAR47PredivType{ .value = conf.XBAR47Prediv };
         const XBAR47Findiv = XBAR47FindivType{ .value = conf.XBAR47Findiv };
         pub const XBAR47Output = XBAR47OutputType{};
+        const XBAR48 = XBAR48Type{ .value = conf.XBAR48 };
         const XBAR48Prediv = XBAR48PredivType{ .value = conf.XBAR48Prediv };
         const XBAR48Findiv = XBAR48FindivType{ .value = conf.XBAR48Findiv };
         pub const XBAR48Output = XBAR48OutputType{};
+        const XBAR49 = XBAR49Type{ .value = conf.XBAR49 };
         const XBAR49Prediv = XBAR49PredivType{ .value = conf.XBAR49Prediv };
         const XBAR49Findiv = XBAR49FindivType{ .value = conf.XBAR49Findiv };
         pub const XBAR49Output = XBAR49OutputType{};
+        const XBAR50 = XBAR50Type{ .value = conf.XBAR50 };
         const XBAR50Prediv = XBAR50PredivType{ .value = conf.XBAR50Prediv };
         const XBAR50Findiv = XBAR50FindivType{ .value = conf.XBAR50Findiv };
         pub const XBAR50Output = XBAR50OutputType{};
+        const XBAR51 = XBAR51Type{ .value = conf.XBAR51 };
         const XBAR51Prediv = XBAR51PredivType{ .value = conf.XBAR51Prediv };
         const XBAR51Findiv = XBAR51FindivType{ .value = conf.XBAR51Findiv };
         pub const XBAR51Output = XBAR51OutputType{};
+        const XBAR52 = XBAR52Type{ .value = conf.XBAR52 };
         const XBAR52Prediv = XBAR52PredivType{ .value = conf.XBAR52Prediv };
         const XBAR52Findiv = XBAR52FindivType{ .value = conf.XBAR52Findiv };
         pub const XBAR52Output = XBAR52OutputType{};
+        const XBAR53 = XBAR53Type{ .value = conf.XBAR53 };
         const XBAR53Prediv = XBAR53PredivType{ .value = conf.XBAR53Prediv };
         const XBAR53Findiv = XBAR53FindivType{ .value = conf.XBAR53Findiv };
         pub const XBAR53Output = XBAR53OutputType{};
+        const XBAR54 = XBAR54Type{ .value = conf.XBAR54 };
         const XBAR54Prediv = XBAR54PredivType{ .value = conf.XBAR54Prediv };
         const XBAR54Findiv = XBAR54FindivType{ .value = conf.XBAR54Findiv };
         pub const XBAR54Output = XBAR54OutputType{};
+        const XBAR55 = XBAR55Type{ .value = conf.XBAR55 };
         const XBAR55Prediv = XBAR55PredivType{ .value = conf.XBAR55Prediv };
         const XBAR55Findiv = XBAR55FindivType{ .value = conf.XBAR55Findiv };
         pub const XBAR55Output = XBAR55OutputType{};
+        const XBAR56 = XBAR56Type{ .value = conf.XBAR56 };
         const XBAR56Prediv = XBAR56PredivType{ .value = conf.XBAR56Prediv };
         const XBAR56Findiv = XBAR56FindivType{ .value = conf.XBAR56Findiv };
         pub const XBAR56Output = XBAR56OutputType{};
+        const XBAR57 = XBAR57Type{ .value = conf.XBAR57 };
         const XBAR57Prediv = XBAR57PredivType{ .value = conf.XBAR57Prediv };
         const XBAR57Findiv = XBAR57FindivType{ .value = conf.XBAR57Findiv };
         pub const XBAR57Output = XBAR57OutputType{};
+        const XBAR58 = XBAR58Type{ .value = conf.XBAR58 };
         const XBAR58Prediv = XBAR58PredivType{ .value = conf.XBAR58Prediv };
         const XBAR58Findiv = XBAR58FindivType{ .value = conf.XBAR58Findiv };
         pub const XBAR58Output = XBAR58OutputType{};
+        const XBAR59 = XBAR59Type{ .value = conf.XBAR59 };
         const XBAR59Prediv = XBAR59PredivType{ .value = conf.XBAR59Prediv };
         const XBAR59Findiv = XBAR59FindivType{ .value = conf.XBAR59Findiv };
         pub const XBAR59Output = XBAR59OutputType{};
+        const XBAR60 = XBAR60Type{ .value = conf.XBAR60 };
         const XBAR60Prediv = XBAR60PredivType{ .value = conf.XBAR60Prediv };
         const XBAR60Findiv = XBAR60FindivType{ .value = conf.XBAR60Findiv };
         pub const XBAR60Output = XBAR60OutputType{};
+        const XBAR61 = XBAR61Type{ .value = conf.XBAR61 };
         const XBAR61Prediv = XBAR61PredivType{ .value = conf.XBAR61Prediv };
         const XBAR61Findiv = XBAR61FindivType{ .value = conf.XBAR61Findiv };
         pub const XBAR61Output = XBAR61OutputType{};
+        const XBAR62 = XBAR62Type{ .value = conf.XBAR62 };
         const XBAR62Prediv = XBAR62PredivType{ .value = conf.XBAR62Prediv };
         const XBAR62Findiv = XBAR62FindivType{ .value = conf.XBAR62Findiv };
         pub const XBAR62Output = XBAR62OutputType{};
+        const XBAR63 = XBAR63Type{ .value = conf.XBAR63 };
         const XBAR63Prediv = XBAR63PredivType{ .value = conf.XBAR63Prediv };
         const XBAR63Findiv = XBAR63FindivType{ .value = conf.XBAR63Findiv };
         pub const XBAR63Output = XBAR63OutputType{};
+        const CKINTSEL0 = CKINTSEL0Type{ .value = conf.CKINTSEL0 };
+        const CKEXTSEL0 = CKEXTSEL0Type{ .value = conf.CKEXTSEL0 };
+        const CKINTSEL1 = CKINTSEL1Type{ .value = conf.CKINTSEL1 };
+        const CKEXTSEL1 = CKEXTSEL1Type{ .value = conf.CKEXTSEL1 };
         const OBS0 = OBS0Type{ .value = conf.OBS0 };
         pub const OBS0Output = OBS0OutputType{};
         const OBS1 = OBS1Type{ .value = conf.OBS1 };

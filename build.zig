@@ -6,16 +6,13 @@ pub fn build(b: *std.Build) void {
 
     const xml = b.dependency("zig_xml", .{}).module("xml-parser");
 
-    const exe_mod = b.createModule(.{
+    const exe = b.addExecutable(.{
+        .name = "ClockParser",
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
 
-    const exe = b.addExecutable(.{
-        .name = "ClockParser",
-        .root_module = exe_mod,
-    });
     exe.root_module.addImport("xml-parser", xml);
 
     b.installArtifact(exe);

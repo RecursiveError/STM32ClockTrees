@@ -95,6 +95,12 @@ pub const MSIRCConf = enum {
         };
     }
 };
+pub const IC1Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC1DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC1DivConf) comptime_int {
@@ -114,6 +120,12 @@ pub const IC1DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC2Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC2DivConf = enum(comptime_int) {
     _,
@@ -135,6 +147,12 @@ pub const IC2DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC3Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC3DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC3DivConf) comptime_int {
@@ -154,6 +172,12 @@ pub const IC3DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC4Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC4DivConf = enum(comptime_int) {
     _,
@@ -175,6 +199,12 @@ pub const IC4DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC5Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC5DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC5DivConf) comptime_int {
@@ -194,6 +224,12 @@ pub const IC5DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC6Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC6DivConf = enum(comptime_int) {
     _,
@@ -215,6 +251,12 @@ pub const IC6DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC7Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC7DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC7DivConf) comptime_int {
@@ -234,6 +276,12 @@ pub const IC7DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC8Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC8DivConf = enum(comptime_int) {
     _,
@@ -255,6 +303,12 @@ pub const IC8DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC9Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC9DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC9DivConf) comptime_int {
@@ -274,6 +328,12 @@ pub const IC9DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC10Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC10DivConf = enum(comptime_int) {
     _,
@@ -295,6 +355,12 @@ pub const IC10DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC11Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC11DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC11DivConf) comptime_int {
@@ -314,6 +380,12 @@ pub const IC11DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC12Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC12DivConf = enum(comptime_int) {
     _,
@@ -335,6 +407,12 @@ pub const IC12DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC13Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC13DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC13DivConf) comptime_int {
@@ -354,6 +432,12 @@ pub const IC13DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC14Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC14DivConf = enum(comptime_int) {
     _,
@@ -375,6 +459,12 @@ pub const IC14DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC15Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC15DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC15DivConf) comptime_int {
@@ -394,6 +484,12 @@ pub const IC15DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC16Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC16DivConf = enum(comptime_int) {
     _,
@@ -415,6 +511,12 @@ pub const IC16DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC17Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC17DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC17DivConf) comptime_int {
@@ -434,6 +536,12 @@ pub const IC17DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC18Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC18DivConf = enum(comptime_int) {
     _,
@@ -455,6 +563,12 @@ pub const IC18DivConf = enum(comptime_int) {
         return 1;
     }
 };
+pub const IC19Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
+};
 pub const IC19DivConf = enum(comptime_int) {
     _,
     pub fn get(num: IC19DivConf) comptime_int {
@@ -474,6 +588,12 @@ pub const IC19DivConf = enum(comptime_int) {
     pub fn min() comptime_int {
         return 1;
     }
+};
+pub const IC20Conf = enum {
+    FOUTPOSTDIV1,
+    FOUTPOSTDIV2,
+    FOUTPOSTDIV3,
+    FOUTPOSTDIV4,
 };
 pub const IC20DivConf = enum(comptime_int) {
     _,
@@ -1582,25 +1702,45 @@ pub const Config = struct {
     HSEDIV: HSEDIVConf = .DIV2,
     LSEOSC: LSEOSCConf = @enumFromInt(32768),
     MSIRC: MSIRCConf = .CLOCK_16,
+    IC1: IC1Conf = .FOUTPOSTDIV1,
     IC1Div: IC1DivConf = @enumFromInt(3),
+    IC2: IC2Conf = .FOUTPOSTDIV1,
     IC2Div: IC2DivConf = @enumFromInt(4),
+    IC3: IC3Conf = .FOUTPOSTDIV1,
     IC3Div: IC3DivConf = @enumFromInt(1),
+    IC4: IC4Conf = .FOUTPOSTDIV1,
     IC4Div: IC4DivConf = @enumFromInt(1),
+    IC5: IC5Conf = .FOUTPOSTDIV1,
     IC5Div: IC5DivConf = @enumFromInt(1),
+    IC6: IC6Conf = .FOUTPOSTDIV1,
     IC6Div: IC6DivConf = @enumFromInt(4),
+    IC7: IC7Conf = .FOUTPOSTDIV2,
     IC7Div: IC7DivConf = @enumFromInt(1),
+    IC8: IC8Conf = .FOUTPOSTDIV2,
     IC8Div: IC8DivConf = @enumFromInt(1),
+    IC9: IC9Conf = .FOUTPOSTDIV2,
     IC9Div: IC9DivConf = @enumFromInt(1),
+    IC10: IC10Conf = .FOUTPOSTDIV2,
     IC10Div: IC10DivConf = @enumFromInt(1),
+    IC11: IC11Conf = .FOUTPOSTDIV1,
     IC11Div: IC11DivConf = @enumFromInt(4),
+    IC12: IC12Conf = .FOUTPOSTDIV3,
     IC12Div: IC12DivConf = @enumFromInt(1),
+    IC13: IC13Conf = .FOUTPOSTDIV3,
     IC13Div: IC13DivConf = @enumFromInt(1),
+    IC14: IC14Conf = .FOUTPOSTDIV3,
     IC14Div: IC14DivConf = @enumFromInt(1),
+    IC15: IC15Conf = .FOUTPOSTDIV3,
     IC15Div: IC15DivConf = @enumFromInt(1),
+    IC16: IC16Conf = .FOUTPOSTDIV4,
     IC16Div: IC16DivConf = @enumFromInt(1),
+    IC17: IC17Conf = .FOUTPOSTDIV4,
     IC17Div: IC17DivConf = @enumFromInt(1),
+    IC18: IC18Conf = .FOUTPOSTDIV4,
     IC18Div: IC18DivConf = @enumFromInt(1),
+    IC19: IC19Conf = .FOUTPOSTDIV4,
     IC19Div: IC19DivConf = @enumFromInt(1),
+    IC20: IC20Conf = .FOUTPOSTDIV4,
     IC20Div: IC20DivConf = @enumFromInt(1),
     MCOMult: MCOMultConf = .HSIDivOutput,
     MCODiv: MCODivConf = .DIV1,
@@ -1802,6 +1942,17 @@ pub fn Clock(comptime conf: Config) type {
                 return 12288000;
             }
         };
+        const IC1Type = struct {
+            value: IC1Conf,
+            pub fn get(comptime self: IC1Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC1DivType = struct {
             value: IC1DivConf,
 
@@ -1824,6 +1975,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC1Div on IC1Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC2Type = struct {
+            value: IC2Conf,
+            pub fn get(comptime self: IC2Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC2DivType = struct {
@@ -1850,6 +2012,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC3Type = struct {
+            value: IC3Conf,
+            pub fn get(comptime self: IC3Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC3DivType = struct {
             value: IC3DivConf,
 
@@ -1872,6 +2045,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC3Div on IC3Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC4Type = struct {
+            value: IC4Conf,
+            pub fn get(comptime self: IC4Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC4DivType = struct {
@@ -1898,6 +2082,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC5Type = struct {
+            value: IC5Conf,
+            pub fn get(comptime self: IC5Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC5DivType = struct {
             value: IC5DivConf,
 
@@ -1920,6 +2115,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC5Div on IC5Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC6Type = struct {
+            value: IC6Conf,
+            pub fn get(comptime self: IC6Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC6DivType = struct {
@@ -1946,6 +2152,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC7Type = struct {
+            value: IC7Conf,
+            pub fn get(comptime self: IC7Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC7DivType = struct {
             value: IC7DivConf,
 
@@ -1968,6 +2185,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC7Div on IC7Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC8Type = struct {
+            value: IC8Conf,
+            pub fn get(comptime self: IC8Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC8DivType = struct {
@@ -1994,6 +2222,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC9Type = struct {
+            value: IC9Conf,
+            pub fn get(comptime self: IC9Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC9DivType = struct {
             value: IC9DivConf,
 
@@ -2016,6 +2255,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC9Div on IC9Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC10Type = struct {
+            value: IC10Conf,
+            pub fn get(comptime self: IC10Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC10DivType = struct {
@@ -2042,6 +2292,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC11Type = struct {
+            value: IC11Conf,
+            pub fn get(comptime self: IC11Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC11DivType = struct {
             value: IC11DivConf,
 
@@ -2064,6 +2325,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC11Div on IC11Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC12Type = struct {
+            value: IC12Conf,
+            pub fn get(comptime self: IC12Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC12DivType = struct {
@@ -2090,6 +2362,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC13Type = struct {
+            value: IC13Conf,
+            pub fn get(comptime self: IC13Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC13DivType = struct {
             value: IC13DivConf,
 
@@ -2112,6 +2395,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC13Div on IC13Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC14Type = struct {
+            value: IC14Conf,
+            pub fn get(comptime self: IC14Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC14DivType = struct {
@@ -2138,6 +2432,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC15Type = struct {
+            value: IC15Conf,
+            pub fn get(comptime self: IC15Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC15DivType = struct {
             value: IC15DivConf,
 
@@ -2160,6 +2465,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC15Div on IC15Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC16Type = struct {
+            value: IC16Conf,
+            pub fn get(comptime self: IC16Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC16DivType = struct {
@@ -2186,6 +2502,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC17Type = struct {
+            value: IC17Conf,
+            pub fn get(comptime self: IC17Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC17DivType = struct {
             value: IC17DivConf,
 
@@ -2208,6 +2535,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC17Div on IC17Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC18Type = struct {
+            value: IC18Conf,
+            pub fn get(comptime self: IC18Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC18DivType = struct {
@@ -2234,6 +2572,17 @@ pub fn Clock(comptime conf: Config) type {
                 return from_input;
             }
         };
+        const IC19Type = struct {
+            value: IC19Conf,
+            pub fn get(comptime self: IC19Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
+            }
+        };
         const IC19DivType = struct {
             value: IC19DivConf,
 
@@ -2256,6 +2605,17 @@ pub fn Clock(comptime conf: Config) type {
                     @compileError(std.fmt.comptimePrint("OverFlow clock from IC19Div on IC19Output | recive {d} max 1600000000\n", .{from_input}));
                 }
                 return from_input;
+            }
+        };
+        const IC20Type = struct {
+            value: IC20Conf,
+            pub fn get(comptime self: IC20Type) comptime_int {
+                return switch (self.value) {
+                    .FOUTPOSTDIV1 => FOUTPOSTDIV1.get(),
+                    .FOUTPOSTDIV2 => FOUTPOSTDIV2.get(),
+                    .FOUTPOSTDIV3 => FOUTPOSTDIV3.get(),
+                    .FOUTPOSTDIV4 => FOUTPOSTDIV4.get(),
+                };
             }
         };
         const IC20DivType = struct {
@@ -4099,44 +4459,64 @@ pub fn Clock(comptime conf: Config) type {
         const LSEOSC = LSEOSCType{ .value = conf.LSEOSC };
         const MSIRC = MSIRCType{ .value = conf.MSIRC };
         const I2S_CKIN = I2S_CKINType{};
+        const IC1 = IC1Type{ .value = conf.IC1 };
         const IC1Div = IC1DivType{ .value = conf.IC1Div };
         pub const IC1Output = IC1OutputType{};
+        const IC2 = IC2Type{ .value = conf.IC2 };
         const IC2Div = IC2DivType{ .value = conf.IC2Div };
         pub const IC2Output = IC2OutputType{};
+        const IC3 = IC3Type{ .value = conf.IC3 };
         const IC3Div = IC3DivType{ .value = conf.IC3Div };
         pub const IC3Output = IC3OutputType{};
+        const IC4 = IC4Type{ .value = conf.IC4 };
         const IC4Div = IC4DivType{ .value = conf.IC4Div };
         pub const IC4Output = IC4OutputType{};
+        const IC5 = IC5Type{ .value = conf.IC5 };
         const IC5Div = IC5DivType{ .value = conf.IC5Div };
         pub const IC5Output = IC5OutputType{};
+        const IC6 = IC6Type{ .value = conf.IC6 };
         const IC6Div = IC6DivType{ .value = conf.IC6Div };
         pub const IC6Output = IC6OutputType{};
+        const IC7 = IC7Type{ .value = conf.IC7 };
         const IC7Div = IC7DivType{ .value = conf.IC7Div };
         pub const IC7Output = IC7OutputType{};
+        const IC8 = IC8Type{ .value = conf.IC8 };
         const IC8Div = IC8DivType{ .value = conf.IC8Div };
         pub const IC8Output = IC8OutputType{};
+        const IC9 = IC9Type{ .value = conf.IC9 };
         const IC9Div = IC9DivType{ .value = conf.IC9Div };
         pub const IC9Output = IC9OutputType{};
+        const IC10 = IC10Type{ .value = conf.IC10 };
         const IC10Div = IC10DivType{ .value = conf.IC10Div };
         pub const IC10Output = IC10OutputType{};
+        const IC11 = IC11Type{ .value = conf.IC11 };
         const IC11Div = IC11DivType{ .value = conf.IC11Div };
         pub const IC11Output = IC11OutputType{};
+        const IC12 = IC12Type{ .value = conf.IC12 };
         const IC12Div = IC12DivType{ .value = conf.IC12Div };
         pub const IC12Output = IC12OutputType{};
+        const IC13 = IC13Type{ .value = conf.IC13 };
         const IC13Div = IC13DivType{ .value = conf.IC13Div };
         pub const IC13Output = IC13OutputType{};
+        const IC14 = IC14Type{ .value = conf.IC14 };
         const IC14Div = IC14DivType{ .value = conf.IC14Div };
         pub const IC14Output = IC14OutputType{};
+        const IC15 = IC15Type{ .value = conf.IC15 };
         const IC15Div = IC15DivType{ .value = conf.IC15Div };
         pub const IC15Output = IC15OutputType{};
+        const IC16 = IC16Type{ .value = conf.IC16 };
         const IC16Div = IC16DivType{ .value = conf.IC16Div };
         pub const IC16Output = IC16OutputType{};
+        const IC17 = IC17Type{ .value = conf.IC17 };
         const IC17Div = IC17DivType{ .value = conf.IC17Div };
         pub const IC17Output = IC17OutputType{};
+        const IC18 = IC18Type{ .value = conf.IC18 };
         const IC18Div = IC18DivType{ .value = conf.IC18Div };
         pub const IC18Output = IC18OutputType{};
+        const IC19 = IC19Type{ .value = conf.IC19 };
         const IC19Div = IC19DivType{ .value = conf.IC19Div };
         pub const IC19Output = IC19OutputType{};
+        const IC20 = IC20Type{ .value = conf.IC20 };
         const IC20Div = IC20DivType{ .value = conf.IC20Div };
         pub const IC20Output = IC20OutputType{};
         const MCOMult = MCOMultType{ .value = conf.MCOMult };

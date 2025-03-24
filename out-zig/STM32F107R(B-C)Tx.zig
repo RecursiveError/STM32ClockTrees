@@ -165,7 +165,6 @@ pub const MCOMultConf = enum {
     MCOMultDivisor,
     PLL2CLKoutput,
     MCOPLL3Div,
-    HSEOSC,
 };
 pub const AHBPrescalerConf = enum {
     const this = @This();
@@ -597,7 +596,6 @@ pub fn Clock(comptime conf: Config) type {
                     .MCOMultDivisor => MCOMultDivisor.get(),
                     .PLL2CLKoutput => PLL2CLKoutput.get(),
                     .MCOPLL3Div => MCOPLL3Div.get(),
-                    .HSEOSC => HSEOSC.get(),
                 };
             }
         };

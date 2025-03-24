@@ -256,6 +256,7 @@ const TypeMap = std.StaticStringMap(TypeRef).initComptime(.{
     .{ "devisor", create_div },
     .{ "divisor", create_div },
     .{ "multiplexor", create_multiplex },
+    .{ "xbar", create_multiplex },
     .{ "output", create_output },
     .{ "activeOutput", create_output },
     .{ "distinctValsSource", create_source },

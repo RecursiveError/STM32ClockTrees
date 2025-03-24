@@ -234,7 +234,9 @@ fn get_elements(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !Elemen
                     }
                     continue;
                 }
-                sources[index] = try get_sources(&data);
+                const new_source = try get_sources(&data);
+                if (check_duplicate_sources(sources[0..index], new_source)) continue;
+                sources[index] = new_source;
                 index += 1;
             },
             else => {},
@@ -262,6 +264,28 @@ fn get_sources(doc: *const XmlParser.Element) !Sources {
         return err;
     };
     return ret;
+}
+
+fn check_duplicate_sources(sources: []Sources, to_check: Sources) bool {
+    const check_str = get_source_name(to_check);
+    for (sources) |source| {
+        if (std.mem.eql(u8, get_source_name(source), check_str)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+fn get_source_name(source: Sources) []const u8 {
+    switch (source) {
+        .output => |output| {
+            return output.to;
+        },
+        .input => |input| {
+            return input.from;
+        },
+        else => unreachable,
+    }
 }
 
 fn get_input(doc: *const XmlParser.Element) anyerror!Sources {
@@ -303,6 +327,7 @@ const RefMap = std.StaticStringMap(GetRef).initComptime(.{
     .{ "fractional", get_ref_number },
     .{ "multiplicatorFrac", get_ref_number },
     .{ "multiplexor", get_multiplexer },
+    .{ "xbar", get_multiplexer },
 });
 
 fn get_references(doc: *const XmlParser.Element, elementtype: []const u8, ref: []const u8, alloc: std.mem.Allocator) !ReferenceValue {
