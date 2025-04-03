@@ -1,0 +1,6 @@
+0: zig_test @ /home/guilherme/Desktop/XML_parser/zig_test/src/main.zig
+   * zig_test_lib @ /home/guilherme/Desktop/XML_parser/zig_test/src/root.zig
+1: test @ /home/guilherme/Desktop/XML_parser/zig_test/src/main.zig
+   * zig_test_lib @ /home/guilherme/Desktop/XML_parser/zig_test/src/root.zig
+2: zig_test @ /home/guilherme/Desktop/XML_parser/zig_test/src/root.zig
+3: test @ /home/guilherme/Desktop/XML_parser/zig_test/src/root.zig
