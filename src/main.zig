@@ -8,9 +8,11 @@ const Sources = ClockTree.Sources;
 const Output = ClockTree.Output;
 const Input = ClockTree.Input;
 const ReferenceValue = ClockTree.ReferenceValue;
+const Reference = ClockTree.Reference;
 
 var GlobalMcu: XmlParser.Document = undefined;
 var GlobalRef: XmlParser.Document = undefined;
+var GlobalExtraRef: XmlParser.Document = undefined;
 var GlobalDoc: XmlParser.Document = undefined;
 
 const clock_dir_path = "/home/guilherme/STM32CubeMX/db/plugins/clock/";
@@ -54,7 +56,7 @@ pub fn main() !void {
 
 fn check_json(mcu_name: []const u8) bool {
     var buf: [100]u8 = undefined;
-    const json = std.fmt.bufPrint(&buf, "out-json/{s}.json", .{mcu_name}) catch return false;
+    const json = std.fmt.bufPrint(&buf, "/home/guilherme/Desktop/XML_parser/out-json/{s}.json", .{mcu_name}) catch return false;
     const file = std.fs.cwd().openFile(json, .{}) catch {
 
         //zig ISSUE #2221 just jump over error file
@@ -144,7 +146,7 @@ fn create_clock_tree(treename: []const u8, refname: []const u8, out_name: []cons
     const clock_name = std.fmt.bufPrint(&out_buffer, "{s}.xml", .{treename}) catch unreachable;
     const clock_file = try clock_dir.openFile(clock_name, .{});
     defer clock_file.close();
-    const json_name = std.fmt.bufPrint(&out_buffer, "out-json/{s}.json", .{out_name[0..(out_name.len - 4)]}) catch unreachable;
+    const json_name = std.fmt.bufPrint(&out_buffer, "/home/guilherme/Desktop/XML_parser/out-json/{s}.json", .{out_name[0..(out_name.len - 4)]}) catch unreachable;
 
     try create(clock_file, ref_file, json_name, alloc);
 }
@@ -155,6 +157,10 @@ fn create(clockTree: std.fs.File, RCC_Reference: std.fs.File, out_name: []const 
 
     GlobalRef = try XmlParser.parse(alloc, "", RCC_Reference.reader());
     defer GlobalRef.deinit();
+    try RCC_Reference.seekTo(0);
+
+    GlobalExtraRef = try XmlParser.parse(alloc, "", RCC_Reference.reader());
+    defer GlobalExtraRef.deinit();
 
     GlobalDoc.acquire();
     defer GlobalDoc.release();
@@ -164,15 +170,16 @@ fn create(clockTree: std.fs.File, RCC_Reference: std.fs.File, out_name: []const 
             .element => |data| {
                 const tagName = data.tag_name;
                 if (std.mem.eql(u8, "Tree", tagName.slice())) {
-                    const cktree = try get_tree(&data, alloc);
+                    const cktree = try get_tree(&data, alloc, false);
                     try tree_to_json(cktree, out_name);
+                    break;
                 }
             },
             else => {},
         }
     }
 }
-fn get_tree(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !*const Tree {
+fn get_tree(doc: *const XmlParser.Element, alloc: std.mem.Allocator, is_sub_tree: bool) !*const Tree {
     const tree = try alloc.create(Tree);
     const children = doc.children();
     var elements = try alloc.alloc(Element, children.len);
@@ -183,7 +190,7 @@ fn get_tree(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !*const Tre
         switch (ch.v()) {
             .element => |data| {
                 if (std.mem.eql(u8, "Tree", data.tag_name.slice())) {
-                    const sub_tree = try get_tree(&data, alloc);
+                    const sub_tree = try get_tree(&data, alloc, true);
                     const new_elements = sub_tree.element.len + elements.len;
                     elements = try alloc.realloc(elements, new_elements);
                     std.mem.copyForwards(Element, elements[index..], sub_tree.element);
@@ -207,6 +214,51 @@ fn get_tree(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !*const Tre
             else => {},
         }
     }
+
+    if (!is_sub_tree) {
+        elements = try alloc.realloc(elements, elements.len + 50);
+        GlobalDoc.release();
+        GlobalExtraRef.acquire();
+        var nrefmap = std.StringHashMap(void).init(alloc);
+
+        for (GlobalExtraRef.root.children()) |ch| {
+            switch (ch.v()) {
+                .element => |data| {
+                    const group = data.attr("Group");
+                    if (group) |gp| {
+                        if (std.mem.eql(u8, gp, "RCC Parameters")) {
+                            const name = data.attr("Name") orelse "NoName";
+
+                            const exist = nrefmap.get(name);
+                            if (exist) |_| continue;
+
+                            GlobalExtraRef.release();
+                            GlobalDoc.acquire();
+                            const ref_val = try get_references(&data, "ExtraRef", name, true, alloc);
+                            GlobalDoc.release();
+                            GlobalExtraRef.acquire();
+                            const new_element = Element{
+                                .Elementtype = "ExtraRef",
+                                .name = name,
+                                .sources = &.{},
+                                .reference = ref_val,
+                                .reference_id = name,
+                            };
+
+                            elements[index] = new_element;
+                            index += 1;
+
+                            try nrefmap.put(name, {});
+                        }
+                    }
+                },
+                else => {},
+            }
+        }
+        nrefmap.deinit();
+        GlobalExtraRef.release();
+        GlobalDoc.acquire();
+    }
     tree.element = elements[0..index];
     return tree;
 }
@@ -217,6 +269,7 @@ fn get_elements(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !Elemen
         .Elementtype = undefined,
         .sources = undefined,
         .reference = undefined,
+        .reference_id = undefined,
     };
     const children = doc.children();
     const sources = try alloc.alloc(Sources, children.len);
@@ -246,9 +299,15 @@ fn get_elements(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !Elemen
     element.sources = sources[0..index];
     errdefer std.log.info("FAIL TO FIND REF FOR {s}\n", .{element.name});
     const ref_param = doc.attr("refParameter") orelse return error.NoReference;
-    element.reference = try get_references(doc, element.Elementtype, ref_param, alloc);
+    element.reference = try get_references(doc, element.Elementtype, ref_param, true, alloc);
+    element.reference_id = clean_ref_id(ref_param);
 
     return element;
+}
+
+fn clean_ref_id(id: []const u8) []const u8 {
+    var seq = std.mem.splitAny(u8, id, ",/+");
+    return seq.next() orelse id;
 }
 
 const GetSources = *const fn (*const XmlParser.Element) anyerror!Sources;
@@ -290,8 +349,14 @@ fn get_source_name(source: Sources) []const u8 {
 
 fn get_input(doc: *const XmlParser.Element) anyerror!Sources {
     const from = doc.attr("from") orelse return error.NoFromInput;
+    const ref_value = doc.attr("refValue");
 
-    return Sources{ .input = .{ .from = from } };
+    return Sources{
+        .input = .{
+            .from = from,
+            .RefValue = ref_value,
+        },
+    };
 }
 
 fn get_output(doc: *const XmlParser.Element) anyerror!Sources {
@@ -314,8 +379,9 @@ fn check_condition(doc: *const XmlParser.Element, alloc: std.mem.Allocator) !boo
     return try expr_parser.evaluateBooleanExpression(expr, corrent_mcu.names, alloc);
 }
 
-const GetRef = *const fn (*const XmlParser.Element, *const XmlParser.Element, std.mem.Allocator) anyerror!ReferenceValue;
+const GetRef = *const fn (*const XmlParser.Element, *const XmlParser.Element, std.mem.Allocator) ReferenceError!ReferenceValue;
 const RefMap = std.StaticStringMap(GetRef).initComptime(.{
+    .{ "ExtraRef", get_ref_number },
     .{ "multiplicator", get_ref_number },
     .{ "devisor", get_ref_number },
     .{ "divisor", get_ref_number },
@@ -330,8 +396,12 @@ const RefMap = std.StaticStringMap(GetRef).initComptime(.{
     .{ "xbar", get_multiplexer },
 });
 
-fn get_references(doc: *const XmlParser.Element, elementtype: []const u8, ref: []const u8, alloc: std.mem.Allocator) !ReferenceValue {
+const ReferenceError = error{ TooDeep, NoReference, NoDefaultvalue, InvalidNumberType, InvalidInput, NoValidMultiInput } || std.mem.Allocator.Error;
+
+fn get_references(doc: *const XmlParser.Element, elementtype: []const u8, ref: []const u8, runtime_expr: bool, alloc: std.mem.Allocator) ReferenceError![]Reference {
     var fields = std.mem.splitAny(u8, ref, ",/");
+    var references = try alloc.alloc(Reference, 10);
+    var ref_index: usize = 0;
 
     GlobalDoc.release();
     defer GlobalDoc.acquire();
@@ -341,91 +411,91 @@ fn get_references(doc: *const XmlParser.Element, elementtype: []const u8, ref: [
     while (true) {
         if (fields.next()) |value| {
             const refid = value;
-            const last_ref: *XmlParser.Element = try alloc.create(XmlParser.Element);
-            const first_ref: *?XmlParser.Element = try alloc.create(?XmlParser.Element);
-            var last_check: []const u8 = undefined;
-            var first_check: []const u8 = undefined;
-            first_ref.* = null;
-
-            defer alloc.destroy(last_ref);
-            defer alloc.destroy(first_ref);
             for (GlobalRef.root.children()) |ch| {
                 switch (ch.v()) {
                     .element => |data| {
                         if (std.mem.eql(u8, data.tag_name.slice(), "RefParameter")) {
                             const refname = data.attr("Name") orelse continue;
                             if (std.mem.eql(u8, refid, refname)) {
-                                const attr = data.attr("DefaultValue") orelse return error.NoDefaultValue;
-                                last_ref.* = data;
-                                last_check = attr;
-                                if (!validade_ref(&data, alloc)) {
-                                    continue;
+                                const attr = data.attr("DefaultValue") orelse return error.NoDefaultvalue;
+                                references[ref_index].expr = null;
+                                references[ref_index].pre_evaluated = false;
+                                if (validade_ref(&data, alloc)) |expr_data| {
+                                    if (std.mem.eql(u8, "Pass", expr_data)) {
+                                        references[ref_index].pre_evaluated = true;
+                                    } else {
+                                        if (!runtime_expr) continue;
+                                        references[ref_index].expr = expr_data;
+                                    }
                                 }
-                                if (first_ref.*) |_| {} else {
-                                    first_ref.* = data;
-                                    first_check = attr;
-                                }
+                                const ref_value = call_ref(&data, attr, doc, elementtype, alloc) catch continue;
+                                references[ref_index].value = ref_value;
+                                ref_index += 1;
                             }
                         }
                     },
                     else => {},
                 }
             }
-            if (first_ref.*) |first| {
-                return call_ref(&first, first_check, doc, elementtype, alloc) catch {
-                    return call_ref(last_ref, last_check, doc, elementtype, alloc) catch continue;
-                };
-            }
-            return call_ref(last_ref, last_check, doc, elementtype, alloc) catch continue;
+            if (ref_index > 0) return references[0..ref_index];
+            continue;
         }
         break;
     }
+    alloc.free(references);
     return error.NoReference;
 }
 
-fn validade_ref(doc: *const XmlParser.Element, alloc: std.mem.Allocator) bool {
+fn validade_ref(doc: *const XmlParser.Element, alloc: std.mem.Allocator) ?[]const u8 {
     for (doc.children()) |ch| {
         switch (ch.v()) {
             .element => |data| {
                 if (std.mem.eql(u8, data.tag_name.slice(), "Condition")) {
-                    return check_condition(&data, alloc) catch false;
+                    const ret = check_condition(&data, alloc) catch false;
+                    if (ret) return "Pass";
+                    return data.attr("Expression");
                 }
             },
             else => {},
         }
     }
 
-    return true;
+    return null;
 }
 
-fn call_ref(ref: *const XmlParser.Element, def_check: []const u8, doc: *const XmlParser.Element, elementtype: []const u8, alloc: std.mem.Allocator) !ReferenceValue {
+fn call_ref(ref: *const XmlParser.Element, def_check: []const u8, doc: *const XmlParser.Element, elementtype: []const u8, alloc: std.mem.Allocator) ReferenceError!ReferenceValue {
     if (def_check.len > 0) {
         if (check_especial_char(def_check, "+=")) {
             GlobalRef.release();
             defer GlobalRef.acquire();
             GlobalDoc.acquire();
             defer GlobalDoc.release();
-            return get_references(doc, elementtype, def_check[1..], alloc);
+            const refs = try get_references(doc, elementtype, def_check[1..], false, alloc);
+            for (refs) |ref_d| {
+                if (ref_d.expr) |_| continue;
+                return ref_d.value;
+            }
+            return error.TooDeep;
         }
     }
     const ref_call = RefMap.get(elementtype) orelse return ReferenceValue{ .NoReference = {} };
     return ref_call(doc, ref, alloc);
 }
 
-const GetNumRef = *const fn (*const XmlParser.Element, std.mem.Allocator) anyerror!ReferenceValue;
+const GetNumRef = *const fn (*const XmlParser.Element, std.mem.Allocator) ReferenceError!ReferenceValue;
 const RefNumMap = std.StaticStringMap(GetNumRef).initComptime(.{
     .{ "integer", get_number },
     .{ "double", get_number },
     .{ "list", get_number_list },
 });
 
-fn get_ref_number(_: *const XmlParser.Element, doc: *const XmlParser.Element, alloc: std.mem.Allocator) anyerror!ReferenceValue {
+fn get_ref_number(_: *const XmlParser.Element, doc: *const XmlParser.Element, alloc: std.mem.Allocator) ReferenceError!ReferenceValue {
     const ref_type = doc.attr("Type") orelse return error.InvalidNumberType;
     const callback = RefNumMap.get(ref_type) orelse return error.InvalidNumberType;
     return try callback(doc, alloc);
 }
 
-fn get_number(doc: *const XmlParser.Element, _: std.mem.Allocator) anyerror!ReferenceValue {
+fn get_number(doc: *const XmlParser.Element, _: std.mem.Allocator) ReferenceError!ReferenceValue {
     const min = doc.attr("Min") orelse "0";
     const max = doc.attr("Max") orelse "0";
     const default = doc.attr("DefaultValue") orelse min;
@@ -447,16 +517,18 @@ fn get_number(doc: *const XmlParser.Element, _: std.mem.Allocator) anyerror!Refe
     };
 }
 
-fn get_number_list(doc: *const XmlParser.Element, alloc: std.mem.Allocator) anyerror!ReferenceValue {
+fn get_number_list(doc: *const XmlParser.Element, alloc: std.mem.Allocator) ReferenceError!ReferenceValue {
     const children = doc.children();
-    const DefaultID = doc.attr("DefaultValue") orelse return error.NoDefaltvalue;
+    const DefaultID = doc.attr("DefaultValue") orelse return error.NoDefaultvalue;
     var defaultIndex: usize = 0;
     var valueList: []f32 = try alloc.alloc(f32, children.len + 1);
+    var valueId: [][]const u8 = try alloc.alloc([]const u8, children.len + 1);
     var index: usize = 0;
 
     if (children.len == 0) {
-        const num = try std.fmt.parseFloat(f32, DefaultID);
+        const num = std.fmt.parseFloat(f32, DefaultID) catch @as(f32, @floatFromInt(index));
         valueList[0] = num;
+        valueId[0] = DefaultID;
         index += 1;
     } else {
         for (children) |ch| {
@@ -464,7 +536,8 @@ fn get_number_list(doc: *const XmlParser.Element, alloc: std.mem.Allocator) anye
                 .element => |data| {
                     const val = data.attr("Comment") orelse continue;
                     const val_id = data.attr("Value") orelse continue;
-                    valueList[index] = try std.fmt.parseFloat(f32, val);
+                    valueList[index] = std.fmt.parseFloat(f32, val) catch @floatFromInt(index);
+                    valueId[index] = val_id;
                     if (std.mem.eql(u8, DefaultID, val_id)) {
                         defaultIndex = index;
                     }
@@ -475,55 +548,36 @@ fn get_number_list(doc: *const XmlParser.Element, alloc: std.mem.Allocator) anye
         }
     }
 
-    return ReferenceValue{
-        .NumberList = .{
-            .default = valueList[defaultIndex],
-            .list = valueList[0..index],
-        },
-    };
+    if (index != 0) {
+        return ReferenceValue{
+            .NumberList = .{
+                .default = valueList[defaultIndex],
+                .list = valueList[0..index],
+                .id_list = valueId[0..index],
+            },
+        };
+    } else {
+        return ReferenceValue{
+            .NumberList = .{
+                .default = 0,
+                .list = &.{0},
+                .id_list = &.{"null"},
+            },
+        };
+    }
 }
 
-fn get_multiplexer(element: *const XmlParser.Element, ref_doc: *const XmlParser.Element, _: std.mem.Allocator) anyerror!ReferenceValue {
-    const DefaultID = ref_doc.attr("DefaultValue") orelse return error.NoDefaltvalue;
-    const def_short = std.mem.lastIndexOf(u8, DefaultID, "_") orelse 0;
-    GlobalRef.release();
-    defer GlobalRef.acquire();
-    GlobalDoc.acquire();
-    defer GlobalDoc.release();
-
-    const id = element.attr("id") orelse unreachable;
-    var first_input: ?[]const u8 = null;
-
-    //if no valid input as found, the first one will be choice as Default
-    for (element.children()) |ch| {
-        switch (ch.v()) {
-            .element => |data| {
-                const tag_name = data.tag_name.slice();
-
-                if (std.mem.eql(u8, "Input", tag_name)) {
-                    const ref_name = data.attr("refValue") orelse continue;
-                    const from = data.attr("from") orelse return error.InvalidInput;
-                    first_input = if (first_input) |_| first_input else from;
-                    if (std.mem.eql(u8, ref_name, DefaultID)) {
-                        return ReferenceValue{ .Input = .{ .DefaultInput = from } };
-                    } else if (std.mem.indexOf(u8, ref_name, DefaultID[def_short..])) |_| {
-                        return ReferenceValue{ .Input = .{ .DefaultInput = from } };
-                    }
-                }
-            },
-            else => {},
-        }
-    }
-    if (first_input) |input| {
-        std.log.info("Not found ref for multiplexor: {s} selecting {s} as default\n", .{ id, input });
-        return ReferenceValue{ .Input = .{ .DefaultInput = input } };
-    }
-    return error.NoValidMultiInput;
+fn get_multiplexer(_: *const XmlParser.Element, ref_doc: *const XmlParser.Element, _: std.mem.Allocator) ReferenceError!ReferenceValue {
+    const DefaultID = ref_doc.attr("DefaultValue") orelse return error.NoDefaultvalue;
+    return ReferenceValue{
+        .Input = .{
+            .DefaultInput = DefaultID,
+        },
+    };
 }
 
 fn tree_to_json(tree: *const Tree, file_name: []const u8) !void {
     const json = try std.fs.cwd().createFile(file_name, .{ .truncate = false });
     defer json.close();
-
     try std.json.stringify(tree, .{}, json.writer());
 }

@@ -7,6 +7,7 @@ pub const ReferenceNumber = struct {
 pub const ReferenceNumberList = struct {
     default: f32,
     list: []const f32,
+    id_list: []const []const u8,
 };
 
 pub const ReferenceInput = struct {
@@ -21,12 +22,19 @@ pub const ReferenceValue = union(enum) {
     Input: ReferenceInput,
 };
 
+pub const Reference = struct {
+    expr: ?[]const u8 = null,
+    pre_evaluated: bool = false,
+    value: ReferenceValue,
+};
+
 pub const Output = struct {
     to: []const u8,
 };
 
 pub const Input = struct {
     from: []const u8,
+    RefValue: ?[]const u8 = null,
 };
 
 pub const Condition = struct {
@@ -43,7 +51,8 @@ pub const Element = struct {
     name: []const u8,
     Elementtype: []const u8,
     sources: []Sources,
-    reference: ReferenceValue,
+    reference: []Reference,
+    reference_id: []const u8,
 };
 
 pub const Tree = struct {
