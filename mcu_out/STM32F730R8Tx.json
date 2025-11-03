@@ -1,0 +1,1 @@
+{"name":"STM32F730R8Tx","clock_ref_file_union":"STM32F722_STM32F722_rcc_v1_0","extra_data":["DIE452","I2C1","I2C2","I2C3","I2S1","I2S2","I2S3","IWDG","PDM2PCM","QUADSPI","RTC","SDMMC1","SYS","STM32F7","STM32F7x0_Value_line","LQFP64"]}

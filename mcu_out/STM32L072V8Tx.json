@@ -1,0 +1,1 @@
+{"name":"STM32L072V8Tx","clock_ref_file_union":"STM32L0_STM32L051_rcc_v1_0","extra_data":["DIE447","ADC","COMP1","COMP2","I2S2","IWDG","RTC","SYS","USART4","USART5","USB","STM32L0","STM32L0x2","LQFP100"]}

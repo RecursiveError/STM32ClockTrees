@@ -1,0 +1,1 @@
+{"name":"STM32F378CCTx","clock_ref_file_union":"STM32F373_STM32F3_rcc_v1_0","extra_data":["DIE432","ADC1","CAN","COMP1","COMP2","I2S1","I2S2","I2S3","IWDG","RTC","SYS","STM32F3","STM32F3x8","LQFP48"]}
